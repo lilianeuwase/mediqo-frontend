@@ -2,11 +2,11 @@ import React from 'react';
 import CardItem1 from '../../components/cards/CardItem1';
 import './ncd.css';
 
-import diabetes from '../../images/diabetes.jpeg';
-import hyper from '../../images/Hyper1.png';
-import derma from '../../images/Doctor1.jpeg';
-import psy from '../../images/Doctor1.jpeg';
-import gyn from '../../images/Doctor1.jpeg';
+let diabetes = require('../../images/diabetes.jpeg');
+let hyper = require('../../images/Hyper1.png');
+let derma = require('../../images/Doctor1.jpeg');
+let psy = require('../../images/Doctor1.jpeg');
+let gyn = require('../../images/Doctor1.jpeg');
 
 function NCD() {
   return (
