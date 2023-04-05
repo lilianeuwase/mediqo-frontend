@@ -18,14 +18,9 @@ import Reconsult from "./components/NCDs/diabetes/reconsult/reconsult";
 import NDiabResults from "./components/NCDs/diabetes/n_diabResults";
 import Hypertension from "./components/NCDs/hypertension/hypertension";
 import HyperResults from "./components/NCDs/hypertension/hyperResults";
-import HyperResult5 from "./components/NCDs/hypertension/hyperResults/hyperResult5";
-import HyperResult6 from "./components/NCDs/hypertension/hyperResults/hyperResult6";
-import HyperResult1 from "./components/NCDs/hypertension/hyperResults/hyperResult1";
-import OldNCD from "./components/NCDs/oldNcd";
 import OldHyper from "./components/NCDs/hypertension/oldHyper";
 import OldHyperPatientDetails from "./components/NCDs/hypertension/oldHyperPatientDetails";
 import NHyperResults from "./components/NCDs/hypertension/n_hyperResults";
-import NHyperResult1 from "./components/NCDs/hypertension/reconsult/n_hyperResult1";
 import DiabMedsTable from "./components/tables/diabetes/diabmedsTable";
 
 function App() {
