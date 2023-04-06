@@ -43,6 +43,9 @@ export default function Login() {
           window.localStorage.setItem("loggedIn", true);
 
           window.location.href = "/userDetails";
+        } else {
+          alert("User Not found");
+          window.location.href = "/";
         }
       });
   }

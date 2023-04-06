@@ -36,6 +36,10 @@ export default function OldHyper() {
 
           window.location.href = "/userDetails/oldconsult/oldhypertension/oldhyperpatientdetails";
         }
+        else {
+          alert("Hyper Patient Not found");
+          window.location.href = "/userDetails/oldconsult/oldhypertension";
+        }
       });
   }
 

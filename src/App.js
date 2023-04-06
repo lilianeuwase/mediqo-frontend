@@ -22,6 +22,7 @@ import OldHyper from "./components/NCDs/hypertension/oldHyper";
 import OldHyperPatientDetails from "./components/NCDs/hypertension/oldHyperPatientDetails";
 import NHyperResults from "./components/NCDs/hypertension/n_hyperResults";
 import DiabMedsTable from "./components/tables/diabetes/diabmedsTable";
+import Asthma from "./components/NCDs/asthma/asthma";
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
@@ -109,6 +110,11 @@ function App() {
           <Route
             path="/userDetails/hypertension/hyperresults"
             element={isLoggedIn == "true" ? <HyperResults /> : <Login />}
+          />
+
+<Route
+            path="/userDetails/asthma"
+            element={isLoggedIn == "true" ? <Asthma /> : <Login />}
           />
           
 
