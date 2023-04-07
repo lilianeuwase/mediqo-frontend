@@ -193,7 +193,7 @@ export default function AddDiab() {
       liver,
       prego
     );
-    fetch("http://localhost:5000/registerPatient", {
+    fetch("https://mediqo-api.onrender.com/registerPatient", {
       method: "POST",
       crossDomain: true,
       headers: {

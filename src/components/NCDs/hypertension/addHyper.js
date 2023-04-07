@@ -133,7 +133,7 @@ export default function AddHyper() {
       prego,
       hiv
     );
-    fetch("http://localhost:5000/registerHyperPatient", {
+    fetch("https://mediqo-api.onrender.com/registerHyperPatient", {
       method: "POST",
       crossDomain: true,
       headers: {

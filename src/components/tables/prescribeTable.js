@@ -19,7 +19,7 @@ export default function PrescribeTable(props) {
     e.preventDefault();
 
     console.log(phone_number, diagnosis, patient_manage, medication);
-    fetch("http://localhost:5000/updatePatient1", {
+    fetch("https://mediqo-api.onrender.com/updatePatient1", {
       method: "POST",
       crossDomain: true,
       headers: {

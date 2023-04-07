@@ -13,7 +13,7 @@ export default function Result2({ phone_number }) {
   //   e.preventDefault();
 
   //   console.log(phone_number, diagnosis, patient_manage);
-  //   fetch("http://localhost:5000/updatePatient1", {
+  //   fetch("https://mediqo-api.onrender.com/updatePatient1", {
   //     method: "POST",
   //     crossDomain: true,
   //     headers: {

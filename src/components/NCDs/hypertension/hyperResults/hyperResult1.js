@@ -33,7 +33,7 @@ export default function HyperResult1({i}) {
       hyper_stage,
       control
     );
-    fetch("http://localhost:5000/updateHyperPatient1", {
+    fetch("https://mediqo-api.onrender.com/updateHyperPatient1", {
       method: "POST",
       crossDomain: true,
       headers: {

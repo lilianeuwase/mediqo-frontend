@@ -145,7 +145,7 @@ export default function Reconsult({ patientData }) {
       liver,
       prego
     );
-    fetch("http://localhost:5000/updatePatient", {
+    fetch("https://mediqo-api.onrender.com/updatePatient", {
       method: "POST",
       crossDomain: true,
       headers: {

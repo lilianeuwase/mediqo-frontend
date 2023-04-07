@@ -143,7 +143,7 @@ export default function AddAsthma() {
       //Danger Signs
       broken
     );
-    fetch("http://localhost:5000/registerAsthmaPatient", {
+    fetch("https://mediqo-api.onrender.com/registerAsthmaPatient", {
       method: "POST",
       crossDomain: true,
       headers: {

@@ -28,7 +28,7 @@ export default function HyperPatientTable({}) {
 
   //fetching all patient
   const getAllPatient = () => {
-    fetch("http://localhost:5000/getAllHyperPatient", {
+    fetch("https://mediqo-api.onrender.com/getAllHyperPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -47,7 +47,7 @@ export default function HyperPatientTable({}) {
   //deleting patient
   const deletePatient = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
-      fetch("http://localhost:5000/deleteHyperPatient", {
+      fetch("https://mediqo-api.onrender.com/deleteHyperPatient", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -81,7 +81,7 @@ export default function HyperPatientTable({}) {
 
   function getPaginatedPatients() {
     fetch(
-      `http://localhost:5000/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      `https://mediqo-api.onrender.com/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }

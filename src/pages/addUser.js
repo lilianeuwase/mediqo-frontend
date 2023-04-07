@@ -19,7 +19,7 @@ export default function AddUser() {
       e.preventDefault();
 
       console.log(fname, lname, email, title, hospital, password);
-      fetch("http://localhost:5000/register", {
+      fetch("https://mediqo-api.onrender.com/register", {
         method: "POST",
         crossDomain: true,
         headers: {

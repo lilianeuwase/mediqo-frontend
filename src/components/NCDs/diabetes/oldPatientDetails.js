@@ -6,7 +6,7 @@ export default function OldPatientDetails() {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/patientData", {
+    fetch("https://mediqo-api.onrender.com/patientData", {
       method: "POST",
       crossDomain: true,
       headers: {

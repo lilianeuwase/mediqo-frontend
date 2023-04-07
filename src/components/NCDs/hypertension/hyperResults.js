@@ -24,7 +24,7 @@ export default function HyperResults() {
 
   //fetching all Hyper patient
   const getAllHyperPatient = () => {
-    fetch("http://localhost:5000/getAllHyperPatient", {
+    fetch("https://mediqo-api.onrender.com/getAllHyperPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -47,7 +47,7 @@ export default function HyperResults() {
 
   function getPaginatedHyperPatients() {
     fetch(
-      `http://localhost:5000/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      `https://mediqo-api.onrender.com/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }

@@ -6,7 +6,7 @@ export default function OldHyperPatientDetails() {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/HyperpatientData", {
+    fetch("https://mediqo-api.onrender.com/HyperpatientData", {
       method: "POST",
       crossDomain: true,
       headers: {

@@ -13,7 +13,7 @@ export default function OldDiab() {
     e.preventDefault();
 
     console.log(phone_number, lname);
-    fetch("http://localhost:5000/login-patient", {
+    fetch("https://mediqo-api.onrender.com/login-patient", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -105,7 +105,7 @@ export default function OldDiab() {
 //     e.preventDefault();
 
 //     console.log(phone_number, lname);
-//     fetch("http://localhost:5000/login-patient", {
+//     fetch("https://mediqo-api.onrender.com/login-patient", {
 //       method: "POST",
 //       crossDomain: true,
 //       headers: {

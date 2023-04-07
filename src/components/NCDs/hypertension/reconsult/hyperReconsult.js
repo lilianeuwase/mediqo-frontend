@@ -127,7 +127,7 @@ export default function HyperReconsult({ HyperpatientData }) {
       prego,
       hiv
     );
-    fetch("http://localhost:5000/updateHyperPatient", {
+    fetch("https://mediqo-api.onrender.com/updateHyperPatient", {
       method: "POST",
       crossDomain: true,
       headers: {
