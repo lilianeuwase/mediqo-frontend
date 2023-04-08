@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import InfoCard from "../../../cards/infoCard";
-import AssComTable from "../../../tables/diabetes/asscomTable";
-import DiabPlan from "../../../tables/diabetes/diabPlan";
+import AsthmaPlan from "../../../tables/asthma/asthmaPlan";
 
-export default function AssCom({ patientInfo }) {
+export default function AsthmaAssCom() {
   //setting state
   const [data, setData] = useState([]);
   const [limit, setLimit] = useState(100);
@@ -13,18 +12,18 @@ export default function AssCom({ patientInfo }) {
 
   useEffect(() => {
     currentPage.current = 1;
-    // getAllPatient();
-    getPaginatedPatients();
+    // getAllAsthmaPatient();
+    getPaginatedAsthmaPatients();
   }, []);
 
-  //fetching all patient
-  const getAllPatient = () => {
-    fetch("https://mediqo-api.onrender.com/getAllPatient", {
+  //fetching all Asthma patient
+  const getAllAsthmaPatient = () => {
+    fetch("https://mediqo-api.onrender.com/getAllAsthmaPatient", {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "patientData");
+        console.log(data, "AsthmapatientData");
         setData(data.data);
       });
   };
@@ -33,23 +32,23 @@ export default function AssCom({ patientInfo }) {
   function handlePageClick(e) {
     console.log(e);
     currentPage.current = e.selected + 1;
-    getPaginatedPatients();
+    getPaginatedAsthmaPatients();
   }
   function changeLimit() {
     currentPage.current = 1;
-    getPaginatedPatients();
+    getPaginatedAsthmaPatients();
   }
 
-  function getPaginatedPatients() {
+  function getPaginatedAsthmaPatients() {
     fetch(
-      `https://mediqo-api.onrender.com/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      `https://mediqo-api.onrender.com/paginatedAsthmaPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "patientData");
+        console.log(data, "AsthmapatientData");
         setPageCount(data.pageCount);
         setData(data.result);
       });
@@ -62,19 +61,13 @@ export default function AssCom({ patientInfo }) {
           if (data.length === a + 1) {
             const b = i.consultations - 1 ?? 0;
             if (
-              i.creatinine[b] > 150 ||
-              i.retino[b] === true ||
-              i.nephro[b] === true ||
-              i.neuro[b] === true ||
-              i.footulcer[b] === true ||
               i.hiv[b] === true ||
-              i.htn[b] === true ||
-              i.liver[b] === true ||
-              i.prego[b] === true
+              i.heart[b] === true ||
+              i.chronic_cough[b] === true
             ) {
               return (
                 <div>
-                  <DiabPlan />
+                  <AsthmaPlan />
                 </div>
               );
             }

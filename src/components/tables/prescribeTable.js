@@ -67,78 +67,80 @@ export default function PrescribeTable(props) {
   }));
 
   return (
-    <TableContainer component={Paper}>
+    <div>
       <form onSubmit={handleSubmit}>
-        <Table sx={{ minWidth: 300 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>{props.title1}</StyledTableCell>
-              <StyledTableCell align="right">{props.title2}</StyledTableCell>
-              <StyledTableCell align="right">{props.title3}</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <StyledTableRow key={props.medication1}>
-              <StyledTableCell component="th" scope="row">
-                {props.medication1}
-              </StyledTableCell>
-              <StyledTableCell align="right">{props.dosage1}</StyledTableCell>
-              <StyledTableCell align="right">
-                {props.consumption1}
-              </StyledTableCell>
-            </StyledTableRow>
-          </TableBody>
-          <TableBody>
-            <StyledTableRow key={props.medication2}>
-              <StyledTableCell component="th" scope="row">
-                {props.medication2}
-              </StyledTableCell>
-              <StyledTableCell align="right">{props.dosage2}</StyledTableCell>
-              <StyledTableCell align="right">
-                {props.consumption2}
-              </StyledTableCell>
-            </StyledTableRow>
-          </TableBody>
-          <TableBody>
-            <StyledTableRow key={props.medication3}>
-              <StyledTableCell component="th" scope="row">
-                {props.medication3}
-              </StyledTableCell>
-              <StyledTableCell align="right">{props.dosage3}</StyledTableCell>
-              <StyledTableCell align="right">
-                {props.consumption3}
-              </StyledTableCell>
-            </StyledTableRow>
-          </TableBody>
-          <TableBody>
-            <StyledTableRow key={props.medication4}>
-              <StyledTableCell component="th" scope="row">
-                {props.medication4}
-              </StyledTableCell>
-              <StyledTableCell align="right">{props.dosage4}</StyledTableCell>
-              <StyledTableCell align="right">
-                {props.consumption4}
-              </StyledTableCell>
-            </StyledTableRow>
-          </TableBody>
-          <TableBody>
-            <StyledTableRow key={props.medication5}>
-              <StyledTableCell component="th" scope="row">
-                {props.medication5}
-              </StyledTableCell>
-              <StyledTableCell align="right">{props.dosage5}</StyledTableCell>
-              <StyledTableCell align="right">
-                {props.consumption5}
-              </StyledTableCell>
-            </StyledTableRow>
-          </TableBody>
-        </Table>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 300 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>{props.title1}</StyledTableCell>
+                <StyledTableCell align="right">{props.title2}</StyledTableCell>
+                <StyledTableCell align="right">{props.title3}</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <StyledTableRow key={props.medication1}>
+                <StyledTableCell component="th" scope="row">
+                  {props.medication1}
+                </StyledTableCell>
+                <StyledTableCell align="right">{props.dosage1}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {props.consumption1}
+                </StyledTableCell>
+              </StyledTableRow>
+            </TableBody>
+            <TableBody>
+              <StyledTableRow key={props.medication2}>
+                <StyledTableCell component="th" scope="row">
+                  {props.medication2}
+                </StyledTableCell>
+                <StyledTableCell align="right">{props.dosage2}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {props.consumption2}
+                </StyledTableCell>
+              </StyledTableRow>
+            </TableBody>
+            <TableBody>
+              <StyledTableRow key={props.medication3}>
+                <StyledTableCell component="th" scope="row">
+                  {props.medication3}
+                </StyledTableCell>
+                <StyledTableCell align="right">{props.dosage3}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {props.consumption3}
+                </StyledTableCell>
+              </StyledTableRow>
+            </TableBody>
+            <TableBody>
+              <StyledTableRow key={props.medication4}>
+                <StyledTableCell component="th" scope="row">
+                  {props.medication4}
+                </StyledTableCell>
+                <StyledTableCell align="right">{props.dosage4}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {props.consumption4}
+                </StyledTableCell>
+              </StyledTableRow>
+            </TableBody>
+            <TableBody>
+              <StyledTableRow key={props.medication5}>
+                <StyledTableCell component="th" scope="row">
+                  {props.medication5}
+                </StyledTableCell>
+                <StyledTableCell align="right">{props.dosage5}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {props.consumption5}
+                </StyledTableCell>
+              </StyledTableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
         <div className="d-grid">
-          <button type="submit" className="button-1">
+          <button type="submit" className="button-3">
             FINISH & SAVE
           </button>
         </div>
       </form>
-    </TableContainer>
+    </div>
   );
 }

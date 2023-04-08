@@ -24,6 +24,7 @@ export default function HyperReconsult({ HyperpatientData }) {
   //Update Patient Details
 
   const consultations = HyperpatientData.consultations + 1;
+  const dates = new Date().toLocaleString();
   const phone_number = HyperpatientData.phone_number;
   //Profile
   const [height, setHeight] = useState("");
@@ -102,6 +103,7 @@ export default function HyperReconsult({ HyperpatientData }) {
       phone_number,
 
       consultations,
+      dates,
       //Profile
       height,
       weight,
@@ -139,6 +141,7 @@ export default function HyperReconsult({ HyperpatientData }) {
         phone_number,
 
         consultations,
+        dates,
         //Profile
         height,
         weight,
@@ -171,9 +174,10 @@ export default function HyperReconsult({ HyperpatientData }) {
         if (data.status == "ok") {
           alert("Patient Info is Updated");
           window.location.href = "/userDetails/oldconsult/oldhypertension/nhyperresults";
-        } else {
-          alert("Something went wrong");
-        }
+        } 
+        // else {
+        //   alert("Something went wrong");
+        // }
       });
   };
   return (
@@ -197,6 +201,7 @@ export default function HyperReconsult({ HyperpatientData }) {
                     id="typeNumber"
                     type="number"
                     size="sm"
+                    step=".01"
                     onChange={(e) => setHeight(e.target.value)}
                   />
                   <MDBInput

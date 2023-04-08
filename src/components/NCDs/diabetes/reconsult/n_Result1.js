@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 import InfoCard from "../../../cards/infoCard";
-import LifestyleCard from "../../../cards/lifestyleCard";
 import ProfileCard from "../../../cards/profileCard";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
@@ -51,9 +50,10 @@ export default function NResult1({ i, contro, titra }) {
         if (data.status == "ok") {
           alert("Patient Info is Updated");
           window.location.href = "/userDetails";
-        } else {
-          alert("Something went wrong");
         }
+        // else {
+        //   alert("Something went wrong");
+        // }
       });
   };
 

@@ -25,6 +25,7 @@ import Checkbox from "@mui/material/Checkbox";
 export default function AddDiab() {
   //Profile
   const consultations = 1;
+  const dates = new Date().toLocaleString();
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [age, setAge] = useState("");
@@ -153,6 +154,7 @@ export default function AddDiab() {
 
     console.log(
       consultations,
+      dates,
       //Profile
       fname,
       lname,
@@ -203,6 +205,7 @@ export default function AddDiab() {
       },
       body: JSON.stringify({
         consultations,
+        dates,
         //Profile
         fname,
         lname,
@@ -251,7 +254,8 @@ export default function AddDiab() {
           alert("Registration Successful");
           window.location.href = "/userDetails/diabetes/diabresults";
         } else {
-          alert("Something went wrong");
+          alert("Something went wrong, Number already exist!");
+          window.location.href = "/userDetails/diabetes";
         }
       });
   };

@@ -89,7 +89,7 @@ export default function DiabMeds({ patientInfo }) {
                   </MDBCol>
 
                   <InsulinTherapy phone_number={i.phone_number} />
-                  <EducationTable/>
+                  <EducationTable />
                 </MDBRow>
               );
             }
@@ -102,7 +102,45 @@ export default function DiabMeds({ patientInfo }) {
                   >
                     Recommended Prescription
                   </h4>
-                  <MDBCol md="5">
+                  <MDBRow>
+                    <MDBCol>
+                      <ProfileCard
+                        name={current_name}
+                        gender={i.gender}
+                        age={i.age}
+                        weight={i.weight}
+                        height={i.height}
+                        bmi={i.bmi}
+                        phone={i.phone_number}
+                      />
+                    </MDBCol>
+                    <MDBCol>
+                      <PrescribeTable
+                        title1="Medication(s)"
+                        title2="Dosage"
+                        title3="Consumption"
+                        medication1="Metformin"
+                        dosage1="500mg"
+                        consumption1="Daily"
+                        phone_number={i.phone_number}
+                        medication="Once Daily Metformin 500mg"
+                      />
+                    </MDBCol>
+                    <EducationTable />
+                  </MDBRow>
+                </MDBRow>
+              );
+            }
+            return (
+              <MDBRow>
+                <h4
+                  className="text-center fw-normal my-4 pb-3 fw-bold"
+                  style={{ letterSpacing: "1px" }}
+                >
+                  Recommended Prescription
+                </h4>
+                <MDBRow>
+                  <MDBCol>
                     <ProfileCard
                       name={current_name}
                       gender={i.gender}
@@ -115,52 +153,18 @@ export default function DiabMeds({ patientInfo }) {
                   </MDBCol>
                   <MDBCol>
                     <PrescribeTable
-                      title1="Medication"
+                      title1="Medication(s)"
                       title2="Dosage"
                       title3="Consumption"
-                      medication1="Metformin"
-                      dosage1="500mg"
-                      consumption1="Daily"
+                      medication1="Glybenclamide (GBC)"
+                      dosage1="5mg"
+                      consumption1="Each Morning"
                       phone_number={i.phone_number}
-                      medication="Daily Metformin 500mg"
+                      medication="Once Each Morning Glybenclamide 5mg"
                     />
-                    <EducationTable/>
                   </MDBCol>
+                  <EducationTable />
                 </MDBRow>
-              );
-            }
-            return (
-              <MDBRow>
-                <h4
-                  className="text-center fw-normal my-4 pb-3 fw-bold"
-                  style={{ letterSpacing: "1px" }}
-                >
-                  Recommended Prescription
-                </h4>
-                <MDBCol md="5">
-                  <ProfileCard
-                    name={current_name}
-                    gender={i.gender}
-                    age={i.age}
-                    weight={i.weight}
-                    height={i.height}
-                    bmi={i.bmi}
-                    phone={i.phone_number}
-                  />
-                </MDBCol>
-                <MDBCol>
-                  <PrescribeTable
-                    title1="Medication"
-                    title2="Dosage"
-                    title3="Consumption"
-                    medication1="Glybenclamide (GBC)"
-                    dosage1="5mg"
-                    consumption1="Each Morning"
-                    phone_number={i.phone_number}
-                    medication="Each Morning Glybenclamide 5mg"
-                  />
-                  <EducationTable/>
-                </MDBCol>
               </MDBRow>
             );
           }

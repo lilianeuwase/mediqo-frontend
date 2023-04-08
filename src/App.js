@@ -23,6 +23,11 @@ import OldHyperPatientDetails from "./components/NCDs/hypertension/oldHyperPatie
 import NHyperResults from "./components/NCDs/hypertension/n_hyperResults";
 import DiabMedsTable from "./components/tables/diabetes/diabmedsTable";
 import Asthma from "./components/NCDs/asthma/asthma";
+import NResult1 from "./components/NCDs/diabetes/reconsult/n_Result1";
+import DiabPlan from "./components/tables/diabetes/diabPlan";
+import AsthmaStepsTable from "./components/tables/asthma/asthmaStepsTable";
+import AsthmaResults from "./components/NCDs/asthma/asthmaResults";
+import AsthmaPlan from "./components/tables/asthma/asthmaPlan";
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
@@ -59,23 +64,25 @@ function App() {
             path="/userDetails/oldconsult"
             element={isLoggedIn == "true" ? <OldConsult /> : <Login />}
           />
-                    <Route
+          <Route
             path="/userDetails/oldconsult/oldhypertension"
             element={isLoggedIn == "true" ? <OldHyper /> : <Login />}
           />
-            <Route
+          <Route
             path="/userDetails/oldconsult/oldhypertension/nhyperresults"
             element={isLoggedIn == "true" ? <NHyperResults /> : <Login />}
           />
-                 <Route
+          <Route
             path="/userDetails/oldconsult/oldhypertension/oldhyperpatientdetails"
-            element={isLoggedIn == "true" ? <OldHyperPatientDetails /> : <Login />}
+            element={
+              isLoggedIn == "true" ? <OldHyperPatientDetails /> : <Login />
+            }
           />
           <Route
             path="/userDetails/oldconsult/olddiabetes"
             element={isLoggedIn == "true" ? <OldDiab /> : <Login />}
           />
-   
+
           <Route
             path="/userDetails/oldconsult/olddiabetes/ndiabresults"
             element={isLoggedIn == "true" ? <NDiabResults /> : <Login />}
@@ -106,20 +113,23 @@ function App() {
             path="/userDetails/hypertension"
             element={isLoggedIn == "true" ? <Hypertension /> : <Login />}
           />
-          
+
           <Route
             path="/userDetails/hypertension/hyperresults"
             element={isLoggedIn == "true" ? <HyperResults /> : <Login />}
           />
 
-<Route
+          <Route
             path="/userDetails/asthma"
             element={isLoggedIn == "true" ? <Asthma /> : <Login />}
           />
-          
+               <Route
+            path="/userDetails/asthma/asthmaresults"
+            element={isLoggedIn == "true" ? <AsthmaResults /> : <Login />}
+          />
 
           {/* For View Purposes */}
-          <Route path="/view" element={<DiabMedsTable />} />
+          <Route path="/view" element={<AsthmaStepsTable />} />
         </Routes>
         <Footer />
       </div>

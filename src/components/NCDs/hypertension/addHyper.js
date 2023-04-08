@@ -25,6 +25,7 @@ import Checkbox from "@mui/material/Checkbox";
 export default function AddHyper() {
   //Profile
   const consultations = 1;
+  const dates = new Date().toLocaleString();
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [age, setAge] = useState("");
@@ -102,6 +103,7 @@ export default function AddHyper() {
 
     console.log(
       consultations,
+      dates,
 
       //Profile
       fname,
@@ -143,6 +145,7 @@ export default function AddHyper() {
       },
       body: JSON.stringify({
         consultations,
+        dates,
 
         //Profile
         fname,
@@ -181,9 +184,10 @@ export default function AddHyper() {
         if (data.status == "ok") {
           alert("Registration Successful");
           window.location.href = "/userDetails/hypertension/hyperresults";
-        } else {
-          alert("Something went wrong");
         }
+        // else {
+        //   alert("Something went wrong");
+        // }
       });
   };
 

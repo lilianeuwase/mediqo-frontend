@@ -35,6 +35,7 @@ export default function PatientHome({ patientData }) {
   
 
   let a = patientData.consultations - 1 ?? 0;
+  let dates = patientData.dates ??[];
 
   // const a = cons - 1;
   return (
@@ -52,6 +53,7 @@ export default function PatientHome({ patientData }) {
               bmi={bmi[a]}
               phone={patientData.phone_number}
               medication= {medication[a-1]}
+              lab1={"Last Cons. :" + dates[a]}
             />
           </MDBCol>
           <MDBCol md="4">
@@ -86,7 +88,7 @@ export default function PatientHome({ patientData }) {
           <MDBCol md="4">
             <PatientVitals
               title1="Previous Diagnosis"
-              title2="Previous Medication"
+              title2="Previous Medication(s)"
               title3="Previous Patient Management"
               fbg={diagnosis[a]}
               abspain={medication[a]}

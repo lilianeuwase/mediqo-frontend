@@ -50,7 +50,7 @@ export default function Result2({ phone_number }) {
               class="text-dark mb-4"
               header="Findings"
               textClass="fw-bold text-danger"
-              text="Diabetes Found !"
+              text="Diabetes"
             />
           </MDBCol>
           <MDBCol sm="6">
@@ -69,8 +69,13 @@ export default function Result2({ phone_number }) {
               color="light"
               class="text-dark mb-4"
               header="Recommended Lifestyle"
-              textClass="fw-bold text-dark"
-              text="lifestyle list"
+              textClass="text-dark"
+              text="
+              Avoid Processed Foods & Fried Foods
+              Try Sugar Alternatives like Honey
+              Eat more Fruits & Vegetables
+              Eat less of Fatty Foods & Red Meat
+              (Table Below)"
             />
           </MDBCol>
           <MDBCol sm="6">

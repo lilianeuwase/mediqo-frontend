@@ -7,6 +7,8 @@ import Result4 from "../diabetes/diabResults/result4";
 import Result1 from "../diabetes/diabResults/result1";
 import NResult1 from "./reconsult/n_Result1";
 import NResult2 from "./reconsult/n_Result2";
+import Result2 from "./diabResults/result2";
+import ProfileCard from "../../cards/profileCard";
 
 export default function NDiabResults() {
   const [patientData, setPatientData] = useState("");
@@ -45,14 +47,48 @@ export default function NDiabResults() {
   let fastglucose = patientData.fastglucose ?? [];
   let glucose = patientData.glucose ?? [];
   let hb = patientData.hb ?? [];
+  let diagnosis = patientData.diagnosis ?? [];
+
+  let weight = patientData.weight ?? [];
+  let height = patientData.height ?? [];
+  let bmi = patientData.bmi ?? [];
+  let hydra = patientData.hydra ?? [];
+  let abspain = patientData.abspain ?? [];
+  let hypo = patientData.hypo ?? [];
+  let sighing = patientData.sighing ?? [];
+  let confusion = patientData.confusion ?? [];
 
   return (
     <div>
       <UserNavbar />
       <MDBContainer className="my-4">
-        {fastglucose[b] < 150 ? (
-          <Result4 phone_number={patientData.phone_number} />
-        ) : (fastglucose[b] >= 150 && fastglucose[b] <= 185) ||
+        {diagnosis[b - 1] === "Second Consultation is Needed to Confirm" ? (
+          fastglucose[b] >= 126 || glucose[b] >= 126 || hb[b] >= 6.5 ? (
+            <div>
+              <ProfileCard
+                name={current_name}
+                gender={patientData.gender}
+                age={patientData.age}
+                weight={weight[b]}
+                height={height[b]}
+                bmi={bmi[b]}
+                phone={patientData.phone_number}
+                lab1={"RBG: " + glucose[b] + " mg/dL"}
+                lab2={"FBG: " + fastglucose[b] + " mg/dL"}
+                lab3={"HbA1c: " + hb[b] + "%"}
+              />
+              <Result2 />
+            </div>
+          ) : (
+            <Result4 phone_number={patientData.phone_number} />
+          )
+        ) : fastglucose[b] <= 50 ? (
+          <NResult1
+            i={patientData}
+            contro="Poor"
+            titra="The Patient is Hypoglycemia"
+          />
+        ) : (fastglucose[b] > 50 && fastglucose[b] <= 185) ||
           (hb >= 7.5 && hb[b] <= 8) ||
           (glucose[b] >= 150 && glucose[b] <= 185) ? (
           <NResult2
@@ -60,16 +96,35 @@ export default function NDiabResults() {
             contro="Good"
             titra="No medication/Insulin changes required"
           />
-        ) : (fastglucose[b] >= 185 && fastglucose[b] <= 400) ||
-          hb[b] > 8 ||
-          (glucose[b] >= 185 && glucose[b] <= 400) ? (
+        ) : fastglucose[b] > 400 ||
+          glucose[b] > 400 ||
+          hb[b] > 9 ||
+          hydra[b] === true ||
+          abspain[b] === true ||
+          hypo[b] === true ||
+          sighing[b] === true ||
+          confusion[b] === true ? (
+          <div>
+            <ProfileCard
+              name={current_name}
+              gender={patientData.gender}
+              age={patientData.age}
+              weight={weight[b]}
+              height={height[b]}
+              bmi={bmi[b]}
+              phone={patientData.phone_number}
+              lab1={"RBG: " + glucose[b] + " mg/dL"}
+              lab2={"FBG: " + fastglucose[b] + " mg/dL"}
+              lab3={"HbA1c: " + hb[b] + "%"}
+            />
+            <Result1 phone_number={patientData.phone_number} />
+          </div>
+        ) : (
           <NResult1
             i={patientData}
             contro="Poor"
             titra="Medication/Insulin Titrations Required"
           />
-        ) : (
-          <Result1 phone_number={patientData.phone_number} />
         )}
       </MDBContainer>
     </div>

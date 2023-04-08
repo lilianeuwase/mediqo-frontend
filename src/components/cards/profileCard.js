@@ -54,19 +54,26 @@ export default function ProfileCard(props) {
                   <MDBCardText className="text-muted">{props.bmi} </MDBCardText>
                 </MDBCol>
                 <MDBCol size="6" className="mb-3">
-                  <MDBTypography tag="h6">Height</MDBTypography>
+                  <MDBTypography tag="h6">BMI</MDBTypography>
+                  <MDBCardText className="text-muted">{props.bmi} </MDBCardText>
+                </MDBCol>
+                <MDBCol size="6" className="mb-3">
+                  <MDBTypography tag="h6">Phone</MDBTypography>
                   <MDBCardText className="text-muted">
-                    {props.height} m
+                    {props.phone}
                   </MDBCardText>
                 </MDBCol>
               </MDBRow>
 
               <hr className="mt-0 mb-4" />
               <MDBRow className="pt-1">
-                <MDBCol size="6" className="mb-3">
-                  <MDBTypography tag="h6">Phone</MDBTypography>
-                  <MDBCardText className="text-muted">
-                    {props.phone}
+                <MDBCol size="6" className="mb-0">
+                  <MDBCardText className="text-muted">{props.lab1}</MDBCardText>
+                  <MDBCardText className="text-muted">{props.lab2}</MDBCardText>
+                </MDBCol>
+                <MDBCol size="6" className="mb-0">
+                  <MDBCardText className="small text-muted">
+                    {props.lab3}
                   </MDBCardText>
                   <MDBCardText className="text-bold">
                     {props.medication}

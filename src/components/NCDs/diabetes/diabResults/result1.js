@@ -6,7 +6,7 @@ import InfoCard from "../../../cards/infoCard";
 export default function Result1({phone_number}) {
 
   //Store Results
-  const diagnosis = "Diabetes Found";
+  const diagnosis = "Diabetes";
   const patient_manage =
     "Admit the patient or Transfer him/her to the District hospital";
   const medication = "Insulin Therapy";
@@ -57,7 +57,7 @@ export default function Result1({phone_number}) {
               class="text-dark mb-4"
               header="Findings"
               textClass="fw-bold text-danger"
-              text="Diabetes Found !"
+              text="Diabetes"
             />
           </MDBCol>
           <MDBCol sm="6">
@@ -77,7 +77,11 @@ export default function Result1({phone_number}) {
               class="text-dark mb-4"
               header="Recommended Lifestyle"
               textClass="fw-bold text-dark"
-              text="lifestyle list"
+              text="
+              Avoid Processed Foods & Fried Foods
+              Try Sugar Alternatives like Honey
+              Eat more Fruits & Vegetables
+              Eat less of Fatty Foods & Red Meat"
             />
           </MDBCol>
           <MDBCol sm="6">

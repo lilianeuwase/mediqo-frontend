@@ -60,9 +60,10 @@ export default function NHyperResult1({ i, contro, titra }) {
         if (data.status == "ok") {
           alert("Patient Info is Updated");
           window.location.href = "/userDetails";
-        } else {
-          alert("Something went wrong");
         }
+        // else {
+        //   alert("Something went wrong");
+        // }
       });
   };
 

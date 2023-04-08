@@ -5,7 +5,7 @@ import InfoCard from "../../../cards/infoCard";
 
 export default function Result3({ phone_number }) {
   //Store Results
-  const diagnosis = "Second Confirmation is Needed to Confirm";
+  const diagnosis = "Second Consultation is Needed to Confirm";
   const patient_manage =
     "Follow Up Visit in 2-4 Weeks";
   const medication = "None";

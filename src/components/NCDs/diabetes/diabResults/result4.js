@@ -51,7 +51,7 @@ export default function Result4({ phone_number }) {
               class="text-dark mb-4"
               header="Findings"
               textClass="fw-bold text-dark"
-              text="No Diabetes Found !"
+              text="No Diabetes"
             />
           </MDBCol>
           <MDBCol sm="6">

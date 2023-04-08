@@ -38,7 +38,7 @@ export default function OldDiab() {
         }
        else {
         alert("Diabetes Patient Not found");
-        window.location.href = "/userDetails/oldconsult/olddiabetes";
+        // window.location.href = "/userDetails/oldconsult/olddiabetes";
       }
         
       });

@@ -1,39 +1,36 @@
 import { React, useState } from "react";
 import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 import InfoCard from "../../../cards/infoCard";
-import LifestyleCard from "../../../cards/lifestyleCard";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import ProfileCard from "../../../cards/profileCard";
+import AsthmaStepsTable from "../../../tables/asthma/asthmaStepsTable";
 
-export default function HyperResult4({ i }) {
+export default function AsthmaResult2({ i }) {
+  
   let weight = i.weight ?? [];
   let height = i.height ?? [];
   let bmi = i.bmi ?? [];
-  let systobp =i.systobp ?? [];
-  let diastobp =i.diastobp ?? [];
 
   const b = i.consultations - 1 ?? 0;
   const phone_number = i.phone_number;
   const current_name = i.lname + " " + i.fname;
+  //Store Results
 
   //Store Results
-  const diagnosis = "Hypertension";
-  const patient_manage = "Manage as Outpatient";
-  const hyper_stage = "Stage I Hypertension";
-  const medication =
-    "If unable to achieve a blood pressure < 140/90 in 3 months, start one Antihypertensive";
-  const control = "";
+  const diagnosis = "ASTHMA";
+  const patient_manage = "Call Physician and Initiate Transfer";
+
+  const [medication, setMedication] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(
-      phone_number,
-      diagnosis,
-      patient_manage,
-      medication,
-      hyper_stage,
-      control
-    );
-    fetch("https://mediqo-api.onrender.com/updateHyperPatient1", {
+    console.log(phone_number, diagnosis, patient_manage, medication);
+    fetch("https://mediqo-api.onrender.com/updateAsthmaPatient1", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -46,20 +43,17 @@ export default function HyperResult4({ i }) {
         diagnosis,
         patient_manage,
         medication,
-        hyper_stage,
-        control,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "HyperpatientRegister");
+        console.log(data, "patientRegister");
         if (data.status == "ok") {
           alert("Patient Info is Updated");
           window.location.href = "/userDetails";
+        } else {
+          alert("Something went wrong");
         }
-        // else {
-        //   alert("Something went wrong");
-        // }
       });
   };
 
@@ -76,7 +70,6 @@ export default function HyperResult4({ i }) {
               height={height[b]}
               bmi={bmi[b]}
               phone={i.phone_number}
-              lab1={"BP: " +systobp[b] + "/"+i.diastobp[b]}
             />
           </MDBCol>
           <MDBCol>
@@ -96,18 +89,10 @@ export default function HyperResult4({ i }) {
                   class="text-light mb-4"
                   header="Patient Management"
                   textClass="fw-bold text-light"
-                  text={patient_manage + " and Monitor Every 3 Months"}
+                  text={patient_manage}
                 />
               </MDBCol>
-              <MDBCol sm="6">
-                <InfoCard
-                  color="light"
-                  class="text-dark mb-4"
-                  header="Hypertension Stage"
-                  textClass="fw-bold text-dark"
-                  text={hyper_stage}
-                />
-              </MDBCol>
+
               <MDBCol sm="6">
                 <InfoCard
                   color="warning"
@@ -121,17 +106,41 @@ export default function HyperResult4({ i }) {
           </MDBCol>
         </MDBRow>
         <MDBRow>
-          <MDBCol sm="6">
-            <LifestyleCard />
-          </MDBCol>
-          <MDBCol sm="2">
-            <div className="d-grid mt-4">
-              <button type="submit" className="button-3">
-                FINISH & SAVE
-              </button>
-            </div>
+          {/* <MDBCol sm="8">
+            <HyperComTable />
+          </MDBCol> */}
+          <MDBCol sm="8">
+            <AsthmaStepsTable />
           </MDBCol>
         </MDBRow>
+        <MDBCol sm="8">
+          <Box className="box">
+            <FormControl size="small" fullWidth className="mt-4">
+              <InputLabel id="demo-simple-select-label">
+                Choose Prescribed Medicine
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={medication}
+                label="Medication"
+                onChange={(e) => setMedication(e.target.value)}
+                required
+              >
+                <MenuItem value="Step #1">Step #1</MenuItem>
+                <MenuItem value="Step #2">Step #2</MenuItem>
+                <MenuItem value="Step #3">Step #3</MenuItem>
+                <MenuItem value="Step #4">Step #4</MenuItem>
+                <MenuItem value="Step #5">Step #5</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+        </MDBCol>
+        <div className="d-grid">
+          <button type="submit" className="button-3">
+            FINISH & SAVE
+          </button>
+        </div>
       </form>
     </MDBCol>
   );

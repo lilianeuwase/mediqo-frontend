@@ -34,6 +34,7 @@ export default function HyperPatientHome({ HyperpatientData }) {
   let patient_manage = HyperpatientData.patient_manage ?? [];
 
   let a = HyperpatientData.consultations - 1 ?? 0;
+  let dates = HyperpatientData.dates ??[];
 
   // const a = cons - 1;
   return (
@@ -51,6 +52,7 @@ export default function HyperPatientHome({ HyperpatientData }) {
               bmi={bmi[a]}
               phone={HyperpatientData.phone_number}
               medication= {medication[a-1]}
+              lab1={"Last Cons. :" + dates[a]}
             />
           </MDBCol>
           <MDBCol md="4">
@@ -88,7 +90,7 @@ export default function HyperPatientHome({ HyperpatientData }) {
           <MDBCol md="4">
             <PatientVitals
               title1="Previous Diagnosis"
-              title2="Previous Medication"
+              title2="Previous Medication(s)"
               title3="Previous Patient Management"
               fbg={diagnosis[a]}
               abspain={medication[a]}

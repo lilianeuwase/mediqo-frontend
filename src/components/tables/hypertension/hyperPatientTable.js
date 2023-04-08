@@ -107,11 +107,12 @@ export default function HyperPatientTable({}) {
         <MDBTable responsive hover small align="middle">
           <MDBTableHead>
             <tr>
-              <th scope="col">Patients</th>
+            <th scope="col">Patients</th>
               <th scope="col">Age</th>
               <th scope="col">Phone Number</th>
-              <th scope="col">NCD</th>
-              <th scope="col">Edit/Delete</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Consultations</th>
+              <th scope="col">Delete</th>
             </tr>
           </MDBTableHead>
           {data.map((i) => {
@@ -141,7 +142,10 @@ export default function HyperPatientTable({}) {
                     <p className="text-muted mb-0">{i.phone_number}</p>
                   </td>
                   <td>
-                    <p className="text-muted mb-0">{i.NCD}</p>
+                    <p className="mb-0">{i.gender}</p>
+                  </td>
+                  <td>
+                    <p className="mb-0">{i.consultations}</p>
                   </td>
                   <td>
                     <p className="text-muted mb-0">

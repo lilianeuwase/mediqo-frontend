@@ -22,8 +22,8 @@ import Checkbox from "@mui/material/Checkbox";
 
 export default function Reconsult({ patientData }) {
   //Update Patient Details
-  // let consultations = patientData.consultations + 1 ?? 0;
   const consultations = patientData.consultations + 1;
+  const dates = new Date().toLocaleString();
   const phone_number = patientData.phone_number;
   //Profile
   const [height, setHeight] = useState("");
@@ -116,6 +116,7 @@ export default function Reconsult({ patientData }) {
       phone_number,
 
       consultations,
+      dates,
       //Profile
       height,
       weight,
@@ -157,6 +158,7 @@ export default function Reconsult({ patientData }) {
         phone_number,
 
         consultations,
+        dates,
         //Profile
         height,
         weight,
@@ -193,9 +195,10 @@ export default function Reconsult({ patientData }) {
         if (data.status == "ok") {
           alert("Patient Info is Updated");
           window.location.href = "/userDetails/oldconsult/olddiabetes/ndiabresults";
-        } else {
-          alert("Something went wrong");
         }
+        // else {
+        //   alert("Something went wrong");
+        // }
       });
   };
   return (
@@ -219,6 +222,7 @@ export default function Reconsult({ patientData }) {
                     id="typeNumber"
                     type="number"
                     size="sm"
+                    step=".01"
                     onChange={(e) => setHeight(e.target.value)}
                   />
                   <MDBInput

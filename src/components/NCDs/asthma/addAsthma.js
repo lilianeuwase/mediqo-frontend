@@ -25,6 +25,7 @@ import Checkbox from "@mui/material/Checkbox";
 export default function AddAsthma() {
   //Profile
   const consultations = 1;
+  const dates = new Date().toLocaleString();
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [age, setAge] = useState("");
@@ -41,22 +42,29 @@ export default function AddAsthma() {
 
   //Symptoms
   const [state, setState] = React.useState({
-    confusion: false,
-    tachycardia: false,
-    wheez: false,
-    sighing: false,
-    expiratory_time: false,
-    clubb: false,
-    cyanosis: false,
-
-    hiv: false,
 
     //Complications
-    prego: false,
+    // prego: false,
+    // wheez: false,
+    // expiratory_time: false,
+    // clubb: false,
+    // cyanosis: false,
 
     //Emergency Signs
+    acute_dyspnea: false,
+    sighing: false,
     broken: false,
+    tachy_brady: false,
+    confusion: false,
+    tachycardia: false,
     bradycardia: false,
+
+    //Co-morbidities
+    hiv: false,
+    reflux: false,
+    hist: false,
+    allergies: false,
+    heart: false,
   });
 
   //Lab Results
@@ -71,40 +79,54 @@ export default function AddAsthma() {
   };
 
   const {
+    //Complications
+    // prego,
+    // wheez,
+    // expiratory_time,
+    // clubb,
+    // cyanosis,
+
+    //Emergency Signs
+    acute_dyspnea,
+    sighing,
+    broken,
+    tachy_brady,
     confusion,
     tachycardia,
-    wheez,
-    sighing,
-    expiratory_time,
-    clubb,
-    cyanosis,
+    bradycardia,
 
+    //Co-morbidities
     hiv,
-
-    //Complications
-    prego,
-
-    //Danger Signs
-    broken,
+    reflux,
+    hist,
+    allergies,
+    heart,
   } = state;
 
   const error =
     [
+      //Complications
+      // prego,
+      // wheez,
+      // expiratory_time,
+      // clubb,
+      // cyanosis,
+
+      //Emergency Signs
+      acute_dyspnea,
+      sighing,
+      broken,
+      tachy_brady,
       confusion,
       tachycardia,
-      wheez,
-      sighing,
-      expiratory_time,
-      clubb,
-      cyanosis,
+      bradycardia,
 
+      //Co-morbidities
       hiv,
-
-      //Complications
-      prego,
-
-      //Danger Signs
-      broken,
+      reflux,
+      hist,
+      allergies,
+      heart,
     ].filter((v) => v).length !== 2;
 
   const handleSubmit = (e) => {
@@ -112,6 +134,8 @@ export default function AddAsthma() {
 
     console.log(
       consultations,
+      dates,
+      
       //Profile
       fname,
       lname,
@@ -126,22 +150,31 @@ export default function AddAsthma() {
       creatinine,
 
       chronic_cough,
-
-      confusion,
-      tachycardia,
-      wheez,
-      sighing,
-      expiratory_time,
-      clubb,
-      cyanosis,
-
-      hiv,
+      dyspnea,
 
       //Complications
-      prego,
+      // prego,
+      // wheez,
+      // expiratory_time,
+      // clubb,
+      // cyanosis,
 
-      //Danger Signs
-      broken
+      //Emergency Signs
+      acute_dyspnea,
+      sighing,
+      broken,
+      tachy_brady,
+      confusion,
+      tachycardia,
+      bradycardia,
+      hypoxia,
+
+      //Co-morbidities
+      hiv,
+      reflux,
+      hist,
+      allergies,
+      heart
     );
     fetch("https://mediqo-api.onrender.com/registerAsthmaPatient", {
       method: "POST",
@@ -153,6 +186,7 @@ export default function AddAsthma() {
       },
       body: JSON.stringify({
         consultations,
+        dates,
         //Profile
         fname,
         lname,
@@ -167,32 +201,42 @@ export default function AddAsthma() {
         creatinine,
 
         chronic_cough,
-
-        confusion,
-        tachycardia,
-        wheez,
-        sighing,
-        expiratory_time,
-        clubb,
-        cyanosis,
-
-        hiv,
+        dyspnea,
 
         //Complications
-        prego,
+        // prego,
+        // wheez,
+        // expiratory_time,
+        // clubb,
+        // cyanosis,
 
-        //Danger Signs
+        //Emergency Signs
+        acute_dyspnea,
+        sighing,
         broken,
+        tachy_brady,
+        confusion,
+        tachycardia,
+        bradycardia,
+        hypoxia,
+
+        //Co-morbidities
+        hiv,
+        reflux,
+        hist,
+        allergies,
+        heart,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "patientRegister");
+        console.log(data, "AsthmapatientRegister");
         if (data.status == "ok") {
           alert("Registration Successful");
           window.location.href = "/userDetails/asthma/asthmaresults";
         } else {
           alert("Something went wrong");
+          window.location.href = "/userDetails/asthma";
         }
       });
   };
@@ -295,6 +339,14 @@ export default function AddAsthma() {
                   />
                   <MDBInput
                     wrapperClass="mb-2"
+                    label="Hypoxia (%)"
+                    id="typeNumber"
+                    type="number"
+                    step=".01"
+                    onChange={(e) => setHypoxia(e.target.value)}
+                  />
+                  <MDBInput
+                    wrapperClass="mb-2"
                     label="Creatinine (μmol/L)"
                     id="typeText"
                     type="text"
@@ -306,7 +358,7 @@ export default function AddAsthma() {
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       value={chronic_cough}
-                      label="Gender"
+                      label="Cough"
                       onChange={(e) => setCough(e.target.value)}
                       required
                     >
@@ -322,7 +374,7 @@ export default function AddAsthma() {
                       </MenuItem>
                       <MenuItem value="Persistent">Persistent & dry</MenuItem>
                       <MenuItem value="Worse">Worse lying flat</MenuItem>
-                      <MenuItem value="Episodic">Episodic & dry</MenuItem>
+                      <MenuItem value="Episodicdry">Episodic & dry</MenuItem>
                     </Select>
                   </FormControl>
                   <FormControl size="small" fullWidth className="mb-2">
@@ -348,7 +400,7 @@ export default function AddAsthma() {
               <MDBCol md="8 modal-dialog-centered" className="ms-5">
                 <MDBCardBody className="d-flex flex-column">
                   {/* Classical symptoms */}
-                  <Box sx={{ display: "flex" }}>
+                  {/* <Box sx={{ display: "flex" }}>
                     <FormControl
                       sx={{ m: 3 }}
                       component="fieldset"
@@ -369,26 +421,6 @@ export default function AddAsthma() {
                         <FormControlLabel
                           control={
                             <Checkbox
-                              checked={confusion}
-                              onChange={handleChange}
-                              name="confusion"
-                            />
-                          }
-                          label="Restlessness & Confusion"
-                        />
-                        <FormControlLabel
-                          control={
-                            <Checkbox
-                              checked={tachycardia}
-                              onChange={handleChange}
-                              name="tachycardia"
-                            />
-                          }
-                          label="Difficult to Hear Heart Sounds"
-                        />
-                        <FormControlLabel
-                          control={
-                            <Checkbox
                               checked={wheez}
                               onChange={handleChange}
                               name="wheez"
@@ -396,16 +428,7 @@ export default function AddAsthma() {
                           }
                           label="Expiratory Wheezing"
                         />
-                        <FormControlLabel
-                          control={
-                            <Checkbox
-                              checked={sighing}
-                              onChange={handleChange}
-                              name="sighing"
-                            />
-                          }
-                          label="Decreased Breath Sounds"
-                        />
+
                         <FormControlLabel
                           control={
                             <Checkbox
@@ -456,6 +479,45 @@ export default function AddAsthma() {
                           }
                           label="Pregnant"
                         />
+                      </FormGroup>
+                    </FormControl>
+                  </Box> */}
+                  <Box sx={{ display: "flex" }}>
+                    <FormControl
+                      sx={{ m: 3 }}
+                      component="fieldset"
+                      variant="standard"
+                    >
+                      <FormLabel component="legend">
+                        <h6
+                          className="text-center text-dark fw-normal my-0 pb-1 fw-bold"
+                          style={{ letterSpacing: "1px" }}
+                        >
+                          Emergency Signs
+                        </h6>
+                        <FormHelperText>Tick signs accordingly</FormHelperText>
+                      </FormLabel>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={acute_dyspnea}
+                              onChange={handleChange}
+                              name="acute_dyspnea"
+                            />
+                          }
+                          label="Acute Dyspnea"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={sighing}
+                              onChange={handleChange}
+                              name="sighing"
+                            />
+                          }
+                          label="Shortness of Breath not Relieved with Salbutamol"
+                        />
                         <FormControlLabel
                           control={
                             <Checkbox
@@ -464,11 +526,125 @@ export default function AddAsthma() {
                               name="broken"
                             />
                           }
-                          label="Broken Sentences"
+                          label="Unable to Speak in Full sentences"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={tachy_brady}
+                              onChange={handleChange}
+                              name="tachy_brady"
+                            />
+                          }
+                          label="Tachypnea (Rapid Breathing)or Bradypnea"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={confusion}
+                              onChange={handleChange}
+                              name="confusion"
+                            />
+                          }
+                          label="Restless or Confused"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={tachycardia}
+                              onChange={handleChange}
+                              name="tachycardia"
+                            />
+                          }
+                          label="Tachycardia"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={bradycardia}
+                              onChange={handleChange}
+                              name="bradycardia"
+                            />
+                          }
+                          label="Bradycardia"
                         />
                       </FormGroup>
                     </FormControl>
                   </Box>
+                  <Box sx={{ display: "flex" }}>
+                    <FormControl
+                      sx={{ m: 3 }}
+                      component="fieldset"
+                      variant="standard"
+                    >
+                      <FormLabel component="legend">
+                        <h6
+                          className="text-center text-dark fw-normal my-0 pb-1 fw-bold"
+                          style={{ letterSpacing: "1px" }}
+                        >
+                          Co-Morbidities
+                        </h6>
+                        <FormHelperText>Tick signs accordingly</FormHelperText>
+                      </FormLabel>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={hiv}
+                              onChange={handleChange}
+                              name="hiv"
+                            />
+                          }
+                          label="H I V"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={reflux}
+                              onChange={handleChange}
+                              name="reflux"
+                            />
+                          }
+                          label="Reflux"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={hist}
+                              onChange={handleChange}
+                              name="hist"
+                            />
+                          }
+                          label="History of TB"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={allergies}
+                              onChange={handleChange}
+                              name="allergies"
+                            />
+                          }
+                          label="Allergies"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={heart}
+                              onChange={handleChange}
+                              name="heart"
+                            />
+                          }
+                          label="Heart Failure"
+                        />
+                      </FormGroup>
+                    </FormControl>
+                  </Box>
+                </MDBCardBody>
+              </MDBCol>
+              <MDBCol md="8 modal-dialog-centered" className="ms-5">
+                <MDBCardBody className="d-flex flex-column">
+                  {/* Classical symptoms */}
                 </MDBCardBody>
               </MDBCol>
             </MDBCol>

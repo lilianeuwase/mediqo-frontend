@@ -8,6 +8,8 @@ import HyperResult5 from "./hyperResults/hyperResult5";
 import HyperResult6 from "./hyperResults/hyperResult6";
 import ProfileCard from "../../cards/profileCard";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import HyperPlan from "../../tables/hypertension/hyperPlan";
+import HyperAssCom from "./hyperResults/hyperAssCom";
 
 export default function HyperResults() {
   //setting state
@@ -73,7 +75,7 @@ export default function HyperResults() {
               i.systobp[b] >= 140 &&
               i.diastobp[b] >= 90 &&
               i.systobp[b] <= 159 &&
-              i.diastobp[b] <= 99
+              i.diastobp[b] <= 110
             ) {
               if (
                 (i.age > 50 &&
@@ -114,40 +116,7 @@ export default function HyperResults() {
                     i.smoke[b] === true))
               ) {
                 return (
-                  <MDBRow>
-                    <h4
-                      className="text-center fw-normal my-4 pb-3 fw-bold"
-                      style={{ letterSpacing: "1px" }}
-                    >
-                      Medical Results
-                    </h4>
-
-                    <HyperResult4 i={i} />
-                  </MDBRow>
-                );
-              }
-              return (
-                <MDBRow>
-                  <h4
-                    className="text-center fw-normal my-4 pb-3 fw-bold"
-                    style={{ letterSpacing: "1px" }}
-                  >
-                    Medical Results
-                  </h4>
-
-                  <HyperResult5 i={i} />
-                </MDBRow>
-              );
-            }
-            if (i.systobp[b] >= 160 && i.diastobp[b] >= 100) {
-              if (i.systobp[b] >= 180 && i.diastobp[b] >= 110) {
-                if (
-                  i.confusion[b] === true ||
-                  i.vision[b] === true ||
-                  i.sighing[b] === true ||
-                  i.chest_pain[b] === true
-                ) {
-                  return (
+                  <div>
                     <MDBRow>
                       <h4
                         className="text-center fw-normal my-4 pb-3 fw-bold"
@@ -156,11 +125,14 @@ export default function HyperResults() {
                         Medical Results
                       </h4>
 
-                      <HyperResult1 i={i} />
+                      <HyperResult4 i={i} />
                     </MDBRow>
-                  );
-                }
-                return (
+                    <HyperAssCom />
+                  </div>
+                );
+              }
+              return (
+                <div>
                   <MDBRow>
                     <h4
                       className="text-center fw-normal my-4 pb-3 fw-bold"
@@ -169,11 +141,70 @@ export default function HyperResults() {
                       Medical Results
                     </h4>
 
-                    <HyperResult2 i={i} />
+                    <HyperResult5 i={i} />
                   </MDBRow>
+                  <HyperAssCom />
+                </div>
+              );
+            }
+            if (i.systobp[b] >= 160 && i.diastobp[b] >= 90) {
+              if (i.systobp[b] >= 180 && i.diastobp[b] >= 90) {
+                if (
+                  i.confusion[b] === true ||
+                  i.vision[b] === true ||
+                  i.sighing[b] === true ||
+                  i.chest_pain[b] === true
+                ) {
+                  return (
+                    <div>
+                      <MDBRow>
+                        <h4
+                          className="text-center fw-normal my-4 pb-3 fw-bold"
+                          style={{ letterSpacing: "1px" }}
+                        >
+                          Medical Results
+                        </h4>
+
+                        <HyperResult1 i={i} />
+                      </MDBRow>
+                      <HyperAssCom />
+                    </div>
+                  );
+                }
+                return (
+                  <div>
+                    <MDBRow>
+                      <h4
+                        className="text-center fw-normal my-4 pb-3 fw-bold"
+                        style={{ letterSpacing: "1px" }}
+                      >
+                        Medical Results
+                      </h4>
+
+                      <HyperResult2 i={i} />
+                    </MDBRow>
+                    <HyperAssCom />
+                  </div>
                 );
               }
               return (
+                <div>
+                  <MDBRow>
+                    <h4
+                      className="text-center fw-normal my-4 pb-3 fw-bold"
+                      style={{ letterSpacing: "1px" }}
+                    >
+                      Medical Results
+                    </h4>
+
+                    <HyperResult3 i={i} />
+                  </MDBRow>
+                  <HyperAssCom />
+                </div>
+              );
+            }
+            return (
+              <div>
                 <MDBRow>
                   <h4
                     className="text-center fw-normal my-4 pb-3 fw-bold"
@@ -182,21 +213,10 @@ export default function HyperResults() {
                     Medical Results
                   </h4>
 
-                  <HyperResult3 i={i} />
+                  <HyperResult6 i={i} />
                 </MDBRow>
-              );
-            }
-            return (
-              <MDBRow>
-                <h4
-                  className="text-center fw-normal my-4 pb-3 fw-bold"
-                  style={{ letterSpacing: "1px" }}
-                >
-                  Medical Results
-                </h4>
-
-                <HyperResult6 i={i} />
-              </MDBRow>
+                <HyperAssCom />
+              </div>
             );
           }
         })}

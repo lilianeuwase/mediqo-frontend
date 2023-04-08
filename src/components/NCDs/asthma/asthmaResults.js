@@ -8,6 +8,10 @@ import Result4 from "../diabetes/diabResults/result4";
 import Result3 from "../diabetes/diabResults/result3";
 import Result1 from "../diabetes/diabResults/result1";
 import Result2 from "../diabetes/diabResults/result2";
+import AsthmaResult1 from "./asthmaResults/asthmaResult1";
+import AsthmaResult2 from "./asthmaResults/asthmaResult2";
+import AsthmaResult3 from "./asthmaResults/asthmaResult3";
+import AsthmaAssCom from "./asthmaResults/asthmaAssCom";
 
 export default function AsthmaResults() {
   //setting state
@@ -68,76 +72,54 @@ export default function AsthmaResults() {
           if (data.length === a + 1) {
             const current_name = i.lname + " " + i.fname;
             const b = i.consultations - 1 ?? 0;
-            
-
-            if (i.fastglucose[b] >= 126 || i.hb[b] >= 6.5 || i.glucose[b] >= 126) {
-              if (i.fastglucose[b] >= 200 || i.glucose[b] >= 200 || i.hb[b]>=7.5) {
-                if (
-                  i.fastglucose[b] > 400 ||
-                  i.glucose[b] > 400 ||
-                  i.hb[b]>8 ||
-                  i.hydra[b] === true ||
-                  i.abspain[b] === true ||
-                  i.hypo[b] === true ||
-                  i.sighing[b] === true ||
-                  i.confusion[b] === true
-                ) {
-                  return (
-                    <MDBRow>
-                      <h4
-                        className="text-center fw-normal my-4 pb-3 fw-bold"
-                        style={{ letterSpacing: "1px" }}
-                      >
-                        Medical Results
-                      </h4>
-                      <MDBCol md="5">
-                        <ProfileCard
-                          name={current_name}
-                          gender={i.gender}
-                          age={i.age}
-                          weight={i.weight[b]}
-                          height={i.height[b]}
-                          bmi={i.bmi[b]}
-                          phone={i.phone_number}
-                        />
-                      </MDBCol>
-
-                      <Result1
-                      phone_number={i.phone_number} 
-                      />
-                    </MDBRow>
-                  );
-                }
-                return (
-                  <div>
-                    <MDBRow>
-                      <h4
-                        className="text-center fw-normal my-4 pb-3 fw-bold"
-                        style={{ letterSpacing: "1px" }}
-                      >
-                        Medical Results
-                      </h4>
-                      <MDBCol md="5">
-                        <ProfileCard
-                          name={current_name}
-                          gender={i.gender}
-                          age={i.age}
-                          weight={i.weight[b]}
-                          height={i.height[b]}
-                          bmi={i.bmi[b]}
-                          phone={i.phone_number}
-                        />
-                      </MDBCol>
-
-                      <Result2 
-                        phone_number={i.phone_number} 
-                      />
-                    </MDBRow>
-                    {/* <AssCom /> */}
-                  </div>
-                );
-              }
+            if (
+              i.acute_dyspnea[b] === "true" ||
+              i.sighing[b] === "true" ||
+              i.broken[b] === "true" ||
+              i.tachy_brady[b] === "true" ||
+              i.confusion[b] === "true" ||
+              i.tachycardia[b] === "true" ||
+              i.bradycardia[b] === "true" ||
+              i.hypoxia[b] < 92
+            ) {
               return (
+                <div>
+                  <MDBRow>
+                    <h4
+                      className="text-center fw-normal my-4 pb-3 fw-bold"
+                      style={{ letterSpacing: "1px" }}
+                    >
+                      Medical Results
+                    </h4>
+
+                    <AsthmaResult1 i={i} />
+                  </MDBRow>
+                  <AsthmaAssCom />
+                </div>
+              );
+            }
+            if (
+              i.cough[b] === "Episodic & dry" ||
+              i.dyspnea[b] === "Episodic"
+            ) {
+              return (
+                <div>
+                  <MDBRow>
+                    <h4
+                      className="text-center fw-normal my-4 pb-3 fw-bold"
+                      style={{ letterSpacing: "1px" }}
+                    >
+                      Medical Results
+                    </h4>
+
+                    <AsthmaResult2 i={i} />
+                  </MDBRow>
+                  <AsthmaAssCom />
+                </div>
+              );
+            }
+            return (
+              <div>
                 <MDBRow>
                   <h4
                     className="text-center fw-normal my-4 pb-3 fw-bold"
@@ -145,48 +127,11 @@ export default function AsthmaResults() {
                   >
                     Medical Results
                   </h4>
-                  <MDBCol md="5">
-                    <ProfileCard
-                      name={current_name}
-                      gender={i.gender}
-                      age={i.age}
-                      weight={i.weight[b]}
-                      height={i.height[b]}
-                      bmi={i.bmi[b]}
-                      phone={i.phone_number}
-                    />
-                  </MDBCol>
 
-                  <Result3 
-                    phone_number={i.phone_number} 
-                  />
+                  <AsthmaResult3 i={i} />
                 </MDBRow>
-              );
-            }
-            return (
-              <MDBRow>
-                <h4
-                  className="text-center fw-normal my-4 pb-3 fw-bold"
-                  style={{ letterSpacing: "1px" }}
-                >
-                  Medical Results
-                </h4>
-                <MDBCol md="5">
-                  <ProfileCard
-                    name={current_name}
-                    gender={i.gender}
-                    age={i.age}
-                    weight={i.weight[b]}
-                    height={i.height[b]}
-                    bmi={i.bmi[b]}
-                    phone={i.phone_number}
-                  />
-                </MDBCol>
-
-                <Result4 
-                  phone_number={i.phone_number} 
-                />
-              </MDBRow>
+                <AsthmaAssCom />
+              </div>
             );
           }
         })}

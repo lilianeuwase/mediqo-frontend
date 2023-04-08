@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import ReactPaginate from "react-paginate";
 import { useRef } from "react";
-
 import {
   MDBBadge,
   MDBTable,
   MDBTableHead,
   MDBTableBody,
 } from "mdb-react-ui-kit";
+import PatientHome from "../../NCDs/diabetes/patientHome";
 
 export default function DiabPatientTable({}) {
   //setting state
@@ -61,10 +60,15 @@ export default function DiabPatientTable({}) {
   };
 
   //Display user
-  function displayPatient() {
+  const displayPatient = (i) => {
+    return(<div>
+      <PatientHome patientData={i} />
+    </div>);
     
-      window.location.href = "/userDetails/oldconsult";
-  }
+  
+
+    // window.location.href = "/userDetails/oldconsult";
+  };
 
   //pagination
   function handlePageClick(e) {
@@ -94,7 +98,6 @@ export default function DiabPatientTable({}) {
 
   return (
     <div className="table">
-    
       <div className="table-container">
         <h5
           className="text-center fw-normal my-5 fw-bold"
@@ -110,7 +113,7 @@ export default function DiabPatientTable({}) {
               <th scope="col">Phone Number</th>
               <th scope="col">Gender</th>
               <th scope="col">Consultations</th>
-              <th scope="col">Edit/Consult</th>
+              <th scope="col">Delete</th>
             </tr>
           </MDBTableHead>
           {data.map((i) => {
@@ -147,10 +150,7 @@ export default function DiabPatientTable({}) {
                   </td>
                   <td>
                     <h6>
-                      <MDBBadge
-                        color="info"
-                        onClick={() => displayPatient(i.phone_number)}
-                      >
+                      <MDBBadge color="info" onClick={() => displayPatient(i)}>
                         Details
                       </MDBBadge>
                     </h6>

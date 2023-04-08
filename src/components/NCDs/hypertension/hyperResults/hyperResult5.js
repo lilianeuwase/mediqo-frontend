@@ -8,13 +8,15 @@ export default function HyperResult5({ i }) {
   let weight = i.weight ?? [];
   let height = i.height ?? [];
   let bmi = i.bmi ?? [];
+  let systobp =i.systobp ?? [];
+  let diastobp =i.diastobp ?? [];
 
   const b = i.consultations - 1 ?? 0;
   const phone_number = i.phone_number;
   const current_name = i.lname + " " + i.fname;
 
   //Store Results
-  const diagnosis = "Hypertension is Found!!";
+  const diagnosis = "Hypertension";
   const patient_manage = "Manage as Outpatient";
   const hyper_stage = "Stage I Hypertension";
   const medication =
@@ -54,9 +56,10 @@ export default function HyperResult5({ i }) {
         if (data.status == "ok") {
           alert("Patient Info is Updated");
           window.location.href = "/userDetails";
-        } else {
-          alert("Something went wrong");
         }
+        // else {
+        //   alert("Something went wrong");
+        // }
       });
   };
 
@@ -73,6 +76,7 @@ export default function HyperResult5({ i }) {
               height={height[b]}
               bmi={bmi[b]}
               phone={i.phone_number}
+              lab1={"BP: " +systobp[b] + "/"+i.diastobp[b]}
             />
           </MDBCol>
           <MDBCol>
