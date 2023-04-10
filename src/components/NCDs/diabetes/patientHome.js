@@ -9,7 +9,7 @@ import Reconsult from "./reconsult/reconsult";
 export default function PatientHome({ patientData }) {
   const fname = patientData.fname;
   const lname = patientData.lname;
-  const name = "Dr. " + lname + " " + fname;
+  const name =lname + " " + fname;
 
   //Avoid Undesfined Errors
   let hydra = patientData.hydra ?? [];

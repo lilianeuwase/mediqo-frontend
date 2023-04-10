@@ -89,11 +89,7 @@ export default function AsthmaStepsTable() {
             <StyledTableCell align="center">
               STEP #1 Intermittent
             </StyledTableCell>
-            <StyledTableCell
-              align="center"
-              style={{ backgroundColor: "red" }}
-              rowSpan={2}
-            >
+            <StyledTableCell align="center" style={{ backgroundColor: "red" }}>
               Step-Up Therapy When Patient’s Asthma Severity Worsen
             </StyledTableCell>
           </TableRow>
@@ -106,7 +102,6 @@ export default function AsthmaStepsTable() {
             <StyledTableCell
               align="center"
               style={{ backgroundColor: "green" }}
-              rowSpan={2}
             >
               Step-Down Therapy When the Patient Achieves 3 months of Symptom
               Relief

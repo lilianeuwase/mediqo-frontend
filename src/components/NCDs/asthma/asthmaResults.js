@@ -1,19 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import UserNavbar from "../../userNavbar";
 
-import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
 
-import ProfileCard from "../../cards/profileCard";
-import Result4 from "../diabetes/diabResults/result4";
-import Result3 from "../diabetes/diabResults/result3";
-import Result1 from "../diabetes/diabResults/result1";
-import Result2 from "../diabetes/diabResults/result2";
 import AsthmaResult1 from "./asthmaResults/asthmaResult1";
 import AsthmaResult2 from "./asthmaResults/asthmaResult2";
 import AsthmaResult3 from "./asthmaResults/asthmaResult3";
 import AsthmaAssCom from "./asthmaResults/asthmaAssCom";
 
 export default function AsthmaResults() {
+
   //setting state
   const [data, setData] = useState([]);
   const [limit, setLimit] = useState(100);
@@ -99,7 +95,7 @@ export default function AsthmaResults() {
               );
             }
             if (
-              i.cough[b] === "Episodic & dry" ||
+              i.chronic_cough[b] === "Episodicdry" ||
               i.dyspnea[b] === "Episodic"
             ) {
               return (

@@ -9,7 +9,7 @@ import HyperReconsult from "./reconsult/hyperReconsult";
 export default function HyperPatientHome({ HyperpatientData }) {
   const fname = HyperpatientData.fname;
   const lname = HyperpatientData.lname;
-  const name = "Dr. " + lname + " " + fname;
+  const name = lname + " " + fname;
 
   //Avoid Undefined Errors
   let vision = HyperpatientData.vision ?? [];

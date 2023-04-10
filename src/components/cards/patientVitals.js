@@ -80,6 +80,16 @@ export default function PatientVitals(props) {
                     {props.prego}
                   </MDBCardText>
                 </MDBCol>
+                <MDBCol size="10" className="mb-4">
+                  <MDBCardText className="text-muted">
+                    {props.prego1}
+                  </MDBCardText>
+                </MDBCol>
+                <MDBCol size="10" className="mb-4">
+                  <MDBCardText className="text-muted">
+                    {props.prego2}
+                  </MDBCardText>
+                </MDBCol>
               </MDBRow>
 
               <MDBTypography tag="h10">{props.title3}</MDBTypography>

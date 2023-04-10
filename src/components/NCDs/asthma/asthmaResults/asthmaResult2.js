@@ -10,10 +10,8 @@ import ProfileCard from "../../../cards/profileCard";
 import AsthmaStepsTable from "../../../tables/asthma/asthmaStepsTable";
 
 export default function AsthmaResult2({ i }) {
-  
   let weight = i.weight ?? [];
   let height = i.height ?? [];
-  let bmi = i.bmi ?? [];
 
   const b = i.consultations - 1 ?? 0;
   const phone_number = i.phone_number;
@@ -22,7 +20,7 @@ export default function AsthmaResult2({ i }) {
 
   //Store Results
   const diagnosis = "ASTHMA";
-  const patient_manage = "Call Physician and Initiate Transfer";
+  const patient_manage = "OutPatient";
 
   const [medication, setMedication] = useState("");
 
@@ -68,13 +66,12 @@ export default function AsthmaResult2({ i }) {
               age={i.age}
               weight={weight[b]}
               height={height[b]}
-              bmi={bmi[b]}
               phone={i.phone_number}
             />
           </MDBCol>
           <MDBCol>
             <MDBRow>
-              <MDBCol sm="6">
+              <MDBCol>
                 <InfoCard
                   color="light"
                   class="text-dark mb-4"
@@ -82,38 +79,24 @@ export default function AsthmaResult2({ i }) {
                   textClass="fw-bold text-danger"
                   text={diagnosis}
                 />
-              </MDBCol>
-              <MDBCol sm="6">
+
                 <InfoCard
                   color="dark"
                   class="text-light mb-4"
-                  header="Patient Management"
+                  header="Patient Management & Medication"
                   textClass="fw-bold text-light"
-                  text={patient_manage}
-                />
-              </MDBCol>
-
-              <MDBCol sm="6">
-                <InfoCard
-                  color="warning"
-                  class="text-dark mb-4"
-                  header="Next Step"
-                  textClass="fw-bold text-dark"
-                  text={medication}
+                  text="OutPatient / Prescribe Medicine Using the Below Step Method"
                 />
               </MDBCol>
             </MDBRow>
           </MDBCol>
         </MDBRow>
         <MDBRow>
-          {/* <MDBCol sm="8">
-            <HyperComTable />
-          </MDBCol> */}
-          <MDBCol sm="8">
+          <MDBCol>
             <AsthmaStepsTable />
           </MDBCol>
         </MDBRow>
-        <MDBCol sm="8">
+        <MDBCol>
           <Box className="box">
             <FormControl size="small" fullWidth className="mt-4">
               <InputLabel id="demo-simple-select-label">
@@ -135,12 +118,12 @@ export default function AsthmaResult2({ i }) {
               </Select>
             </FormControl>
           </Box>
+          <div className="d-grid">
+            <button type="submit" className="button-3">
+              FINISH & SAVE
+            </button>
+          </div>
         </MDBCol>
-        <div className="d-grid">
-          <button type="submit" className="button-3">
-            FINISH & SAVE
-          </button>
-        </div>
       </form>
     </MDBCol>
   );

@@ -28,6 +28,9 @@ import DiabPlan from "./components/tables/diabetes/diabPlan";
 import AsthmaStepsTable from "./components/tables/asthma/asthmaStepsTable";
 import AsthmaResults from "./components/NCDs/asthma/asthmaResults";
 import AsthmaPlan from "./components/tables/asthma/asthmaPlan";
+import OldAsthma from "./components/NCDs/asthma/oldAsthma";
+import OldAsthmaPatientDetails from "./components/NCDs/asthma/oldAsthmaPatientDetails";
+import NAsthmaResults from "./components/NCDs/asthma/n_asthmaResults";
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
@@ -64,7 +67,20 @@ function App() {
             path="/userDetails/oldconsult"
             element={isLoggedIn == "true" ? <OldConsult /> : <Login />}
           />
-          <Route
+     
+                <Route
+            path="/userDetails/oldconsult/oldasthma"
+            element={isLoggedIn == "true" ? <OldAsthma /> : <Login />}
+          />
+                 <Route
+            path="/userDetails/oldconsult/oldasthma/nasthmaresults"
+            element={isLoggedIn == "true" ? <NAsthmaResults /> : <Login />}
+          />
+              <Route
+            path="/userDetails/oldconsult/oldasthma/oldasthmapatientdetails"
+            element={isLoggedIn == "true" ? <OldAsthmaPatientDetails /> : <Login />}
+          />
+               <Route
             path="/userDetails/oldconsult/oldhypertension"
             element={isLoggedIn == "true" ? <OldHyper /> : <Login />}
           />

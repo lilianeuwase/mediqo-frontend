@@ -4,7 +4,7 @@ import './ncd.css';
 
 let diabetes = require('../../images/diabetes.jpeg');
 let hyper = require('../../images/Hyper1.png');
-let derma = require('../../images/Doctor1.jpeg');
+let asthma = require('../../images/asthma.jpeg');
 let psy = require('../../images/Doctor1.jpeg');
 let gyn = require('../../images/Doctor1.jpeg');
 
@@ -30,11 +30,11 @@ function OldNCD() {
             />
           </ul>
           <ul className='cards_items'>
-            <CardItem1
-              src={derma}
-              text='Skin, Hair, and Nails Conditions'
-              label='Dermatologist'
-              path='/derma'
+          <CardItem1
+              src={asthma}
+              text='This section is designed for suspected Asthma Patients'
+              label='CHRONIC RESPIRATORY DISEASE (CRD)'
+              path='/userDetails/oldconsult/oldasthma'
             />
             <CardItem1
               src={psy}

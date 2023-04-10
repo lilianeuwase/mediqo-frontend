@@ -5,7 +5,6 @@ import ProfileCard from "../../../cards/profileCard";
 import InfoCard from "../../../cards/infoCard";
 
 export default function AsthmaResult1({ i }) {
-
   let weight = i.weight ?? [];
   let height = i.height ?? [];
   let bmi = i.bmi ?? [];
@@ -13,7 +12,7 @@ export default function AsthmaResult1({ i }) {
   const b = i.consultations - 1 ?? 0;
   const phone_number = i.phone_number;
   const current_name = i.lname + " " + i.fname;
-  
+
   //Store Results
   const diagnosis = "CRD Emergency";
   const patient_manage = "Call Physician and Initiate Transfer";
@@ -68,7 +67,7 @@ export default function AsthmaResult1({ i }) {
           </MDBCol>
           <MDBCol>
             <MDBRow>
-              <MDBCol sm="6">
+              <MDBCol>
                 <InfoCard
                   color="light"
                   class="text-dark mb-4"
@@ -76,24 +75,13 @@ export default function AsthmaResult1({ i }) {
                   textClass="fw-bold text-danger"
                   text={diagnosis}
                 />
-              </MDBCol>
-              <MDBCol sm="6">
+
                 <InfoCard
                   color="dark"
                   class="text-light mb-4"
                   header="Patient Management"
                   textClass="fw-bold text-light"
                   text={patient_manage}
-                />
-              </MDBCol>
-
-              <MDBCol sm="6">
-                <InfoCard
-                  color="warning"
-                  class="text-dark mb-4"
-                  header="Next Step"
-                  textClass="fw-bold text-dark"
-                  text={medication}
                 />
               </MDBCol>
             </MDBRow>
