@@ -14,7 +14,7 @@ import {
 import { useGalaxyInfoStyles } from '@mui-treasury/styles/info/galaxy';
 import { useCoverCardMediaStyles } from '@mui-treasury/styles/cardMedia/cover';
 
-let photo = require('../../images/Ornella.jpeg');
+let photo = require('../../images/pic1.jpeg');
 
 const useStyles = makeStyles(() => ({
   card: {
