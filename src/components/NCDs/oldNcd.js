@@ -28,15 +28,16 @@ function OldNCD() {
               label='HYPERTENSION'
               path='/userDetails/oldconsult/oldhypertension'
             />
-          </ul>
-          <ul className='cards_items'>
-          <CardItem1
+               <CardItem1
               src={asthma}
               text='This section is designed for suspected Asthma Patients'
               label='CHRONIC RESPIRATORY DISEASE (CRD)'
               path='/userDetails/oldconsult/oldasthma'
             />
-            <CardItem1
+          </ul>
+          <ul className='cards_items'>
+       
+            {/* <CardItem1
               src={psy}
               text='Diagnosis, Treatment and Prevention of Mental, Emotional and Behavioral Disorders'
               label='Psychiatrist'
@@ -47,7 +48,7 @@ function OldNCD() {
               text='Conditions that Affect the Female Reproductive System'
               label='Gynecologist'
               path='/gyne'
-            />
+            /> */}
           </ul>
         </div>
       </div>
