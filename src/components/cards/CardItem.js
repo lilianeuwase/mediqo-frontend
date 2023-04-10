@@ -14,7 +14,6 @@ import {
 import { useGalaxyInfoStyles } from '@mui-treasury/styles/info/galaxy';
 import { useCoverCardMediaStyles } from '@mui-treasury/styles/cardMedia/cover';
 
-// import photo from "../../images/Ornella.jpeg";
 let photo = require('../../images/Ornella.jpeg');
 
 const useStyles = makeStyles(() => ({
@@ -65,7 +64,7 @@ export const CardItem = React.memo(function GalaxyCard(props2) {
         />
         <Box py={3} px={2} className={styles.content}>
           <Info useStyles={useGalaxyInfoStyles}>
-            <InfoSubtitle>{props2.subtitle}</InfoSubtitle>
+            <InfoSubtitle style={{ color: 'primary.main' }}>{props2.subtitle}</InfoSubtitle>
             <InfoTitle>{props2.title}</InfoTitle>
             <InfoCaption>{props2.caption}</InfoCaption>
           </Info>

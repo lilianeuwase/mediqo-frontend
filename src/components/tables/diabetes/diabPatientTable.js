@@ -149,11 +149,11 @@ export default function DiabPatientTable({}) {
                     <p className="mb-0">{i.consultations}</p>
                   </td>
                   <td>
-                    <h6>
+                    {/* <h6>
                       <MDBBadge color="info" onClick={() => displayPatient(i)}>
                         Details
                       </MDBBadge>
-                    </h6>
+                    </h6> */}
                     <h6>
                       <MDBBadge
                         color="danger"
