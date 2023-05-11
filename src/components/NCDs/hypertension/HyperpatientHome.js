@@ -29,9 +29,10 @@ export default function HyperPatientHome({ HyperpatientData }) {
   let diastobp = HyperpatientData.diastobp ?? [];
   let creatinine = HyperpatientData.creatinine ?? [];
   let hiv = HyperpatientData.hiv ?? [];
-  let diagnosis = HyperpatientData.diagnosis ?? [];
+  let hyper_stage = HyperpatientData.hyper_stage ?? [];
   let medication = HyperpatientData.medication ?? [];
   let patient_manage = HyperpatientData.patient_manage ?? [];
+  let hyperkalemia_reslts = HyperpatientData.hyperkalemia_reslts ??[];
 
   let a = HyperpatientData.consultations - 1 ?? 0;
   let dates = HyperpatientData.dates ??[];
@@ -53,6 +54,7 @@ export default function HyperPatientHome({ HyperpatientData }) {
               phone={HyperpatientData.phone_number}
               medication= {medication[a-1]}
               lab1={"Last Cons. :" + dates[a]}
+              lab2={" Hyperkalemia :" +  hyperkalemia_reslts[a]}
             />
           </MDBCol>
           <MDBCol md="4">
@@ -91,8 +93,8 @@ export default function HyperPatientHome({ HyperpatientData }) {
             <PatientVitals
               title1="Previous Diagnosis"
               title2="Previous Medication(s)"
-              title3="Previous Patient Management"
-              fbg={diagnosis[a]}
+              title3="Previous Management"
+              fbg={hyper_stage[a]}
               abspain={medication[a]}
               retino={patient_manage[a]}
             />

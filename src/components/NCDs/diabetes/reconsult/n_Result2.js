@@ -14,8 +14,8 @@ export default function NResult2({ i, contro, titra }) {
   const phone_number = i.phone_number;
   const current_name = i.lname + " " + i.fname;
   //Store Results
-  const diagnosis = "";
-  const patient_manage = "";
+  const diagnosis = contro + " Control";
+  const patient_manage = titra;
 
   const medication = med[b];
   const control = contro;
@@ -25,7 +25,8 @@ export default function NResult2({ i, contro, titra }) {
     e.preventDefault();
 
     console.log(phone_number, diagnosis, patient_manage, medication, control);
-    fetch("https://mediqo-api.onrender.com/updatePatient1", {
+    // fetch("https://mediqo-api.onrender.com/updatePatient1", {
+      fetch("http://localhost:5000/updatePatient1", {
       method: "POST",
       crossDomain: true,
       headers: {

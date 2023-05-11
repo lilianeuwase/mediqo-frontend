@@ -28,7 +28,8 @@ export default function AsthmaPatientTable({}) {
 
   //fetching all patient
   const getAllPatient = () => {
-    fetch("https://mediqo-api.onrender.com/getAllAsthmaPatient", {
+    // fetch("https://mediqo-api.onrender.com/getAllAsthmaPatient", {
+      fetch("http://localhost:5000/getAllAsthmaPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -47,7 +48,8 @@ export default function AsthmaPatientTable({}) {
   //deleting patient
   const deletePatient = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
-      fetch("https://mediqo-api.onrender.com/deleteAsthmaPatient", {
+      // fetch("https://mediqo-api.onrender.com/deleteAsthmaPatient", {
+        fetch("http://localhost:5000/deleteAsthmaPatient", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -81,7 +83,8 @@ export default function AsthmaPatientTable({}) {
 
   function getPaginatedPatients() {
     fetch(
-      `https://mediqo-api.onrender.com/paginatedAsthmaPatients?page=${currentPage.current}&limit=${limit}`,
+      // `https://mediqo-api.onrender.com/paginatedAsthmaPatients?page=${currentPage.current}&limit=${limit}`,
+      `http://localhost:5000/paginatedAsthmaPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }

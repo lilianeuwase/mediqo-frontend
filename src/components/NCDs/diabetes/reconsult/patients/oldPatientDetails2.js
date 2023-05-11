@@ -1,13 +1,13 @@
 import React, { Component, useEffect, useState } from "react";
-import AsthmaPatientHome from "./AsthmapatientHome";
+import DiabConsTable from "./diabConsTable";
 
-export default function OldAsthmaPatientDetails() {
-  const [AsthmapatientData, setAsthmaPatientData] = useState("");
+export default function OldPatientDetails2() {
+  const [patientData, setPatientData] = useState("");
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    // fetch("https://mediqo-api.onrender.com/AsthmapatientData", {
-      fetch("http://localhost:5000/AsthmapatientData", {
+    // fetch("https://mediqo-api.onrender.com/patientData", {
+      fetch("http://localhost:5000/patientData", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -16,14 +16,14 @@ export default function OldAsthmaPatientDetails() {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
-        token: window.localStorage.getItem("Asthmapatienttoken"),
+        token: window.localStorage.getItem("patienttoken"),
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "AsthmapatientData");
+        console.log(data, "patientData");
 
-        setAsthmaPatientData(data.data);
+        setPatientData(data.data);
 
         if (data.data == "token expired") {
           alert("Token expired Retrieve again");
@@ -33,5 +33,5 @@ export default function OldAsthmaPatientDetails() {
       });
   }, []);
 
-  return <AsthmaPatientHome AsthmapatientData={AsthmapatientData} />;
+  return <DiabConsTable patientData={patientData} />;
 }

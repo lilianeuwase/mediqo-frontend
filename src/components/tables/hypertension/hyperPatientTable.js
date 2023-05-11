@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import ReactPaginate from "react-paginate";
 import { useRef } from "react";
 
 import {
@@ -9,8 +8,6 @@ import {
   MDBTable,
   MDBTableHead,
   MDBTableBody,
-  MDBContainer,
-  MDBCard,
 } from "mdb-react-ui-kit";
 
 export default function HyperPatientTable({}) {
@@ -28,7 +25,8 @@ export default function HyperPatientTable({}) {
 
   //fetching all patient
   const getAllPatient = () => {
-    fetch("https://mediqo-api.onrender.com/getAllHyperPatient", {
+    // fetch("https://mediqo-api.onrender.com/getAllHyperPatient", {
+    fetch("http://localhost:5000/getAllHyperPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -47,7 +45,8 @@ export default function HyperPatientTable({}) {
   //deleting patient
   const deletePatient = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
-      fetch("https://mediqo-api.onrender.com/deleteHyperPatient", {
+      // fetch("https://mediqo-api.onrender.com/deleteHyperPatient", {
+      fetch("http://localhost:5000/deleteHyperPatient", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -81,7 +80,8 @@ export default function HyperPatientTable({}) {
 
   function getPaginatedPatients() {
     fetch(
-      `https://mediqo-api.onrender.com/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      // `https://mediqo-api.onrender.com/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      `http://localhost:5000/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }
@@ -94,9 +94,46 @@ export default function HyperPatientTable({}) {
       });
   }
 
+   //Hypertension Retrieval
+   function handleSubmit(phone_number, lname) {
+    // e.preventDefault();
+
+    console.log(phone_number, lname);
+    // fetch("https://mediqo-api.onrender.com/login-patient", {
+      fetch("http://localhost:5000/login-hyperpatient", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        phone_number,
+        lname,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "patientRegister");
+        if (data.status == "ok") {
+          alert("Retrieval is  successful");
+          window.localStorage.setItem("patienttoken", data.data);
+          window.localStorage.setItem("Retrieved", true);
+
+          window.location.href = "/userDetails/oldconsult/oldhypertension/oldhyperpatientdetails2";
+        }
+       else {
+        alert("Diabetes Patient Not found");
+        // window.location.href = "/userDetails/oldconsult/olddiabetes";
+      }
+        
+      });
+  }
+
   return (
     <div className="table">
-    <hr class="hr hr-blurry" />
+      <hr class="hr hr-blurry" />
       <div className="table-container">
         <h5
           className="text-center fw-normal my-5 fw-bold"
@@ -112,12 +149,12 @@ export default function HyperPatientTable({}) {
               <th scope="col">Phone Number</th>
               <th scope="col">Gender</th>
               <th scope="col">Consultations</th>
-              <th scope="col">Delete</th>
+              <th scope="col">First Consultation</th>
             </tr>
           </MDBTableHead>
           {data.map((i) => {
             return (
-              <MDBTableBody>
+              <MDBTableBody  onClick={() => handleSubmit(i.phone_number, i.lname)}>
                 <tr>
                   <td>
                     <div className="d-flex align-items-center">
@@ -148,12 +185,7 @@ export default function HyperPatientTable({}) {
                     <p className="mb-0">{i.consultations}</p>
                   </td>
                   <td>
-                    <p className="text-muted mb-0">
-                      <FontAwesomeIcon
-                        icon={faTrash}
-                        onClick={() => deletePatient(i._id, i.fname)}
-                      />
-                    </p>
+                    <p className="mb-0">{i.dates[0]}</p>
                   </td>
                 </tr>
               </MDBTableBody>

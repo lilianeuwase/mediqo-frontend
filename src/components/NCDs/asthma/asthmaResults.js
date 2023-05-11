@@ -24,7 +24,8 @@ export default function AsthmaResults() {
 
   //fetching all Asthmapatient
   const getAllAsthmapatient = () => {
-    fetch("https://mediqo-api.onrender.com/getAllAsthmapatient", {
+    // fetch("https://mediqo-api.onrender.com/getAllAsthmapatient", {
+      fetch("http://localhost:5000/getAllAsthmapatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -47,7 +48,8 @@ export default function AsthmaResults() {
 
   function getPaginatedAsthmapatients() {
     fetch(
-      `https://mediqo-api.onrender.com/paginatedAsthmapatients?page=${currentPage.current}&limit=${limit}`,
+      // `https://mediqo-api.onrender.com/paginatedAsthmapatients?page=${currentPage.current}&limit=${limit}`,
+      `http://localhost:5000/paginatedAsthmapatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }

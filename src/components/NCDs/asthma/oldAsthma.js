@@ -13,7 +13,8 @@ export default function OldAsthma() {
     e.preventDefault();
 
     console.log(phone_number, lname);
-    fetch("https://mediqo-api.onrender.com/login-Asthmapatient", {
+    // fetch("https://mediqo-api.onrender.com/login-Asthmapatient", {
+      fetch("http://localhost:5000/AsthmapatientData", {
       method: "POST",
       crossDomain: true,
       headers: {

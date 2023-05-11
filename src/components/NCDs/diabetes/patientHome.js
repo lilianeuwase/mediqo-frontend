@@ -89,7 +89,7 @@ export default function PatientHome({ patientData }) {
             <PatientVitals
               title1="Previous Diagnosis"
               title2="Previous Medication(s)"
-              title3="Previous Patient Management"
+              title3="Previous Management"
               fbg={diagnosis[a]}
               abspain={medication[a]}
               retino={patient_manage[a]}

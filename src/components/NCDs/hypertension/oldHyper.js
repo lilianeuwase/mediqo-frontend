@@ -13,7 +13,8 @@ export default function OldHyper() {
     e.preventDefault();
 
     console.log(phone_number, lname);
-    fetch("https://mediqo-api.onrender.com/login-Hyperpatient", {
+    // fetch("https://mediqo-api.onrender.com/login-Hyperpatient", {
+      fetch("http://localhost:5000/login-Hyperpatient", {
       method: "POST",
       crossDomain: true,
       headers: {

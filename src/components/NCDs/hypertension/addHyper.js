@@ -9,7 +9,7 @@ import {
 } from "mdb-react-ui-kit";
 import "../diabetes/addDiab.css";
 import "../../buttons/button.css";
-
+import TextArea from "@atlaskit/textarea";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -34,10 +34,14 @@ export default function AddHyper() {
   const [phone_number, setPhone] = useState("");
   const [gender, setGender] = useState("");
 
+  //Comment
+  const [doctor_comment, setDoctorComment] = useState("");
+
   //Lab Resultd
   const [systobp, setSystobp] = useState("");
   const [diastobp, setDiastobp] = useState("");
   const [creatinine, setCreatinine] = useState("");
+  const [hyperkalemia_reslts, setHyperkalemiaReslts] = useState("");
 
   const [state, setState] = React.useState({
     //Danger Signs
@@ -119,6 +123,7 @@ export default function AddHyper() {
       systobp,
       diastobp,
       creatinine,
+      hyperkalemia_reslts,
 
       //Danger Signs
       confusion,
@@ -133,9 +138,13 @@ export default function AddHyper() {
       bradycardia,
       hyperkalemia,
       prego,
-      hiv
+      hiv,
+
+      //Comment
+      doctor_comment
     );
-    fetch("https://mediqo-api.onrender.com/registerHyperPatient", {
+    // fetch("https://mediqo-api.onrender.com/registerHyperPatient", {
+    fetch("http://localhost:5000/registerHyperPatient", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -161,6 +170,7 @@ export default function AddHyper() {
         systobp,
         diastobp,
         creatinine,
+        hyperkalemia_reslts,
 
         //Danger Signs
         confusion,
@@ -176,6 +186,9 @@ export default function AddHyper() {
         hyperkalemia,
         prego,
         hiv,
+
+        //Comment
+        doctor_comment,
       }),
     })
       .then((res) => res.json())
@@ -245,6 +258,7 @@ export default function AddHyper() {
                       >
                         <MenuItem value="Female">Female</MenuItem>
                         <MenuItem value="Male">Male</MenuItem>
+                        <MenuItem value="Male">Other</MenuItem>
                       </Select>
                     </FormControl>
                   </Box>
@@ -370,6 +384,14 @@ export default function AddHyper() {
                     size="sm"
                     onChange={(e) => setCreatinine(e.target.value)}
                   />
+                        <MDBInput
+                    wrapperClass="mb-2"
+                    label="Hyperkalemia"
+                    id="typeText"
+                    type="text"
+                    size="sm"
+                    onChange={(e) => setHyperkalemiaReslts(e.target.value)}
+                  />
                 </MDBCardBody>
               </MDBCol>
 
@@ -492,7 +514,13 @@ export default function AddHyper() {
                 </MDBCardBody>
               </MDBCol>
             </MDBCol>
-
+            <TextArea
+              resize="vertical"
+              className="mb-6"
+              appearance="standard"
+              placeholder="Comment"
+              onChange={(e) => setDoctorComment(e.target.value)}
+            />
             <div className="d-grid">
               <button type="submit" className="button-small">
                 SUBMIT

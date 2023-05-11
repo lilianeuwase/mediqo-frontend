@@ -26,7 +26,8 @@ export default function DiabResults({ patientInfo }) {
 
   //fetching all patient
   const getAllPatient = () => {
-    fetch("https://mediqo-api.onrender.com/getAllPatient", {
+    // fetch("https://mediqo-api.onrender.com/getAllPatient", {
+      fetch("http://localhost:5000/getAllPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -49,7 +50,8 @@ export default function DiabResults({ patientInfo }) {
 
   function getPaginatedPatients() {
     fetch(
-      `https://mediqo-api.onrender.com/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      // `https://mediqo-api.onrender.com/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      `http://localhost:5000/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }

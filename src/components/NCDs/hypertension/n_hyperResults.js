@@ -13,7 +13,8 @@ export default function NHyperResults() {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    fetch("https://mediqo-api.onrender.com/HyperpatientData", {
+    // fetch("https://mediqo-api.onrender.com/HyperpatientData", {
+      fetch("http://localhost:5000/HyperpatientData", {
       method: "POST",
       crossDomain: true,
       headers: {

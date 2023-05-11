@@ -20,7 +20,8 @@ export default function HyperAssCom({ HyperpatientInfo }) {
 
   //fetching all Hyper patient
   const getAllHyperPatient = () => {
-    fetch("https://mediqo-api.onrender.com/getAllHyperPatient", {
+    // fetch("https://mediqo-api.onrender.com/getAllHyperPatient", {
+      fetch("http://localhost:5000/getAllHyperPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -43,7 +44,8 @@ export default function HyperAssCom({ HyperpatientInfo }) {
 
   function getPaginatedHyperPatients() {
     fetch(
-      `https://mediqo-api.onrender.com/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      // `https://mediqo-api.onrender.com/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      `http://localhost:5000/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }
@@ -65,7 +67,7 @@ export default function HyperAssCom({ HyperpatientInfo }) {
             if (
               i.creatinine[b] > 150 ||
               i.prego[b] === true ||
-              i.liver[b] === true ||
+          //    i.liver[b] === true ||
               i.hiv[b] === true ||
               i.bradycardia[b] === true ||
               i.hyperkalemia[b] === true

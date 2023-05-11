@@ -1,13 +1,13 @@
-import React, { Component, useEffect, useState } from "react";
-import PatientHome from "./patientHome";
+import React, { useEffect, useState } from "react";
+import HyperConsTable from "./hyperConsTable";
 
-export default function OldPatientDetails() {
-  const [patientData, setPatientData] = useState("");
+export default function OldHyperPatientDetails2() {
+  const [HyperpatientData, setHyperPatientData] = useState("");
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    // fetch("https://mediqo-api.onrender.com/patientData", {
-      fetch("http://localhost:5000/patientData", {
+    // fetch("https://mediqo-api.onrender.com/HyperpatientData", {
+      fetch("http://localhost:5000/hyperpatientData", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -16,14 +16,14 @@ export default function OldPatientDetails() {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
-        token: window.localStorage.getItem("patienttoken"),
+        token: window.localStorage.getItem("Hyperpatienttoken"),
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "patientData");
+        console.log(data, "HyperpatientData");
 
-        setPatientData(data.data);
+        setHyperPatientData(data.data);
 
         if (data.data == "token expired") {
           alert("Token expired Retrieve again");
@@ -33,5 +33,6 @@ export default function OldPatientDetails() {
       });
   }, []);
 
-  return <PatientHome patientData={patientData} />;
+
+  return <HyperConsTable HyperpatientData={HyperpatientData} />;
 }

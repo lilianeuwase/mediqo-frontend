@@ -10,7 +10,7 @@ import {
 } from "mdb-react-ui-kit";
 import "../addDiab.css";
 import "../../../buttons/button.css";
-
+import TextArea from "@atlaskit/textarea";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 
@@ -34,6 +34,9 @@ export default function Reconsult({ patientData }) {
   const [hb, setHb] = useState("");
   const [fastglucose, setFastGlucose] = useState("");
   const [creatinine, setCreatinine] = useState("");
+
+  //Comment
+  const [doctor_comment, setDoctorComment] = useState("");
 
   const [state, setState] = React.useState({
     //Danger signs
@@ -107,7 +110,6 @@ export default function Reconsult({ patientData }) {
     ].filter((v) => v).length !== 2;
 
   const bmi = (weight / (height * height)).toFixed(2);
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -144,9 +146,13 @@ export default function Reconsult({ patientData }) {
       hiv,
       htn,
       liver,
-      prego
+      prego,
+
+      //Comment
+      doctor_comment
     );
-    fetch("https://mediqo-api.onrender.com/updatePatient", {
+    // fetch("https://mediqo-api.onrender.com/updatePatient", {
+    fetch("http://localhost:5000/updatePatient", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -187,6 +193,9 @@ export default function Reconsult({ patientData }) {
         htn,
         liver,
         prego,
+
+        //Comment
+        doctor_comment,
       }),
     })
       .then((res) => res.json())
@@ -194,7 +203,8 @@ export default function Reconsult({ patientData }) {
         console.log(data, "patientRegister");
         if (data.status == "ok") {
           alert("Patient Info is Updated");
-          window.location.href = "/userDetails/oldconsult/olddiabetes/ndiabresults";
+          window.location.href =
+            "/userDetails/oldconsult/olddiabetes/ndiabresults";
         }
         // else {
         //   alert("Something went wrong");
@@ -484,7 +494,13 @@ export default function Reconsult({ patientData }) {
                 </MDBCardBody>
               </MDBCol>
             </MDBRow>
-
+            <TextArea
+              resize="vertical"
+              className="mb-6"
+              appearance="standard"
+              placeholder="Comment"
+              onChange={(e) => setDoctorComment(e.target.value)}
+            />
             <div className="d-grid">
               <button type="submit" className="button-small">
                 SUBMIT

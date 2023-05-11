@@ -25,7 +25,8 @@ export default function DiabPatientTable({}) {
 
   //fetching all patient
   const getAllPatient = () => {
-    fetch("https://mediqo-api.onrender.com/getAllPatient", {
+    // fetch("https://mediqo-api.onrender.com/getAllPatient", {
+    fetch("http://localhost:5000/getAllPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -38,7 +39,8 @@ export default function DiabPatientTable({}) {
   //deleting patient
   const deletePatient = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
-      fetch("https://mediqo-api.onrender.com/deletePatient", {
+      // fetch("https://mediqo-api.onrender.com/deletePatient", {
+      fetch("http://localhost:5000/deletePatient", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -61,11 +63,11 @@ export default function DiabPatientTable({}) {
 
   //Display user
   const displayPatient = (i) => {
-    return(<div>
-      <PatientHome patientData={i} />
-    </div>);
-    
-  
+    return (
+      <div>
+        <PatientHome patientData={i} />
+      </div>
+    );
 
     // window.location.href = "/userDetails/oldconsult";
   };
@@ -83,7 +85,8 @@ export default function DiabPatientTable({}) {
 
   function getPaginatedPatients() {
     fetch(
-      `https://mediqo-api.onrender.com/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      // `https://mediqo-api.onrender.com/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      `http://localhost:5000/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }
@@ -96,6 +99,43 @@ export default function DiabPatientTable({}) {
       });
   }
 
+  //Retrieval
+  function handleSubmit(phone_number, lname) {
+    // e.preventDefault();
+
+    console.log(phone_number, lname);
+    // fetch("https://mediqo-api.onrender.com/login-patient", {
+      fetch("http://localhost:5000/login-patient", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        phone_number,
+        lname,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "patientRegister");
+        if (data.status == "ok") {
+          alert("Retrieval is  successful");
+          window.localStorage.setItem("patienttoken", data.data);
+          window.localStorage.setItem("Retrieved", true);
+
+          window.location.href = "/userDetails/oldconsult/olddiabetes/oldpatientdetails2";
+        }
+       else {
+        alert("Diabetes Patient Not found");
+        // window.location.href = "/userDetails/oldconsult/olddiabetes";
+      }
+        
+      });
+  }
+
   return (
     <div className="table">
       <div className="table-container">
@@ -105,7 +145,7 @@ export default function DiabPatientTable({}) {
         >
           Diabetes Patients
         </h5>
-        <MDBTable responsive hover small align="middle">
+        <MDBTable responsive hover small align="middle" >
           <MDBTableHead>
             <tr>
               <th scope="col">Patients</th>
@@ -113,21 +153,25 @@ export default function DiabPatientTable({}) {
               <th scope="col">Phone Number</th>
               <th scope="col">Gender</th>
               <th scope="col">Consultations</th>
-              <th scope="col">Delete</th>
+              <th scope="col">First Consultation</th>
             </tr>
           </MDBTableHead>
           {data.map((i) => {
             return (
-              <MDBTableBody>
+              <MDBTableBody  onClick={() => handleSubmit(i.phone_number, i.lname)}>
                 <tr>
                   <td>
                     <div className="d-flex align-items-center">
-                      <img
+                      {/* <img
                         src="https://mdbootstrap.com/img/new/avatars/8.jpg"
                         alt=""
                         style={{ width: "45px", height: "45px" }}
                         className="rounded-circle"
-                      />
+                      /> */}
+                      {/* <i
+                        class="fas fa-user fa-2x"
+                        style={{ width: "45px", height: "45px" }}
+                      ></i> */}
                       <div className="ms-3">
                         <p className="fw-bold mb-1">{i.fname}</p>
                         <p className="mb-0">{i.lname}</p>
@@ -149,11 +193,12 @@ export default function DiabPatientTable({}) {
                     <p className="mb-0">{i.consultations}</p>
                   </td>
                   <td>
+                  <p className="mb-0">{i.dates[0]}</p>
                     {/* <h6>
                       <MDBBadge color="info" onClick={() => displayPatient(i)}>
                         Details
                       </MDBBadge>
-                    </h6> */}
+                    </h6>
                     <h6>
                       <MDBBadge
                         color="danger"
@@ -161,7 +206,7 @@ export default function DiabPatientTable({}) {
                       >
                         Delete
                       </MDBBadge>
-                    </h6>
+                    </h6> */}
                   </td>
                 </tr>
               </MDBTableBody>

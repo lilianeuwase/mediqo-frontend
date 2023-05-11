@@ -35,8 +35,9 @@ export default function ProfileCard(props) {
             <MDBTypography tag="h6">
               <mark>{props.gender}</mark>
             </MDBTypography>
+            {props.phone}
             <MDBCardText>Age: {props.age}</MDBCardText>
-            <MDBIcon far icon="edit mb-5" />
+            {/* <MDBIcon far icon="edit mb-5" /> */}
           </MDBCol>
           <MDBCol md="8">
             <MDBCardBody className="p-4">
@@ -51,18 +52,20 @@ export default function ProfileCard(props) {
                 </MDBCol>
                 <MDBCol size="6" className="mb-3">
                   <MDBTypography tag="h6">Height</MDBTypography>
-                  <MDBCardText className="text-muted">{props.height} </MDBCardText>
+                  <MDBCardText className="text-muted">
+                    {props.height}{" "}
+                  </MDBCardText>
                 </MDBCol>
                 <MDBCol size="6" className="mb-3">
                   <MDBTypography tag="h6">BMI</MDBTypography>
                   <MDBCardText className="text-muted">{props.bmi} </MDBCardText>
                 </MDBCol>
-                <MDBCol size="6" className="mb-3">
+                {/* <MDBCol size="6" className="mb-3">
                   <MDBTypography tag="h6">Phone</MDBTypography>
                   <MDBCardText className="text-muted">
                     {props.phone}
                   </MDBCardText>
-                </MDBCol>
+                </MDBCol> */}
               </MDBRow>
 
               <hr className="mt-0 mb-4" />

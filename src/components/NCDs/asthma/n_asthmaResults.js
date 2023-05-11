@@ -14,7 +14,8 @@ export default function NAsthmaResults() {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    fetch("https://mediqo-api.onrender.com/AsthmapatientData", {
+    // fetch("https://mediqo-api.onrender.com/AsthmapatientData", {
+      fetch("http://localhost:5000/AsthmapatientData", {
       method: "POST",
       crossDomain: true,
       headers: {

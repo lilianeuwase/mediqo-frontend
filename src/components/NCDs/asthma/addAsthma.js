@@ -9,7 +9,7 @@ import {
 } from "mdb-react-ui-kit";
 import "../diabetes/addDiab.css";
 import "../../buttons/button.css";
-
+import TextArea from "@atlaskit/textarea";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -34,6 +34,9 @@ export default function AddAsthma() {
   const [phone_number, setPhone] = useState("");
   const [gender, setGender] = useState("");
 
+  //Comment
+  const [doctor_comment, setDoctorComment] = useState("");
+
   //Check-up
   const [chronic_cough, setCough] = useState("");
   const [dyspnea, setDyspnea] = useState("");
@@ -42,7 +45,6 @@ export default function AddAsthma() {
 
   //Symptoms
   const [state, setState] = React.useState({
-
     //Complications
     // prego: false,
     // wheez: false,
@@ -135,7 +137,7 @@ export default function AddAsthma() {
     console.log(
       consultations,
       dates,
-      
+
       //Profile
       fname,
       lname,
@@ -174,9 +176,13 @@ export default function AddAsthma() {
       reflux,
       hist,
       allergies,
-      heart
+      heart,
+
+      //Comment
+      doctor_comment
     );
-    fetch("https://mediqo-api.onrender.com/registerAsthmaPatient", {
+    // fetch("https://mediqo-api.onrender.com/registerAsthmaPatient", {
+    fetch("http://localhost:5000/registerAsthmaPatient", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -226,6 +232,9 @@ export default function AddAsthma() {
         hist,
         allergies,
         heart,
+
+        //Comment
+        doctor_comment,
       }),
     })
       .then((res) => res.json())
@@ -295,6 +304,7 @@ export default function AddAsthma() {
                     >
                       <MenuItem value="Female">Female</MenuItem>
                       <MenuItem value="Male">Male</MenuItem>
+                      <MenuItem value="Male">Other</MenuItem>
                     </Select>
                   </FormControl>
 
@@ -648,6 +658,13 @@ export default function AddAsthma() {
                 </MDBCardBody>
               </MDBCol>
             </MDBCol>
+            <TextArea
+              resize="vertical"
+              className="mb-6"
+              appearance="standard"
+              placeholder="Comment"
+              onChange={(e) => setDoctorComment(e.target.value)}
+            />
             <div className="d-grid">
               <button type="submit" className="button-small">
                 SUBMIT

@@ -18,8 +18,8 @@ export default function NResult1({ i, contro, titra }) {
   const phone_number = i.phone_number;
   const current_name = i.lname + " " + i.fname;
   //Store Results
-  const diagnosis = "";
-  const patient_manage = "";
+  const diagnosis = contro + " Control";
+  const patient_manage = titra;
   const [medication, setMedication] = useState("");
   const control = contro;
   const titration = titra;
@@ -28,7 +28,8 @@ export default function NResult1({ i, contro, titra }) {
     e.preventDefault();
 
     console.log(phone_number, diagnosis, patient_manage, medication, control);
-    fetch("https://mediqo-api.onrender.com/updatePatient1", {
+   // fetch("https://mediqo-api.onrender.com/updatePatient1", {
+      fetch("http://localhost:5000/updatePatient1", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -51,9 +52,9 @@ export default function NResult1({ i, contro, titra }) {
           alert("Patient Info is Updated");
           window.location.href = "/userDetails";
         }
-        // else {
-        //   alert("Something went wrong");
-        // }
+        else {
+          alert("Something went wrong");
+        }
       });
   };
 

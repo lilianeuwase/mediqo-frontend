@@ -7,7 +7,8 @@ export default function UserDetails() {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    fetch("https://mediqo-api.onrender.com/userData", {
+    // fetch("https://mediqo-api.onrender.com/userData", {
+      fetch("http://localhost:5000/userData", {
       method: "POST",
       crossDomain: true,
       headers: {

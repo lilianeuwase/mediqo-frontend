@@ -9,7 +9,7 @@ import {
 } from "mdb-react-ui-kit";
 import "./addDiab.css";
 import "../../buttons/button.css";
-
+import TextArea from "@atlaskit/textarea";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -33,6 +33,9 @@ export default function AddDiab() {
   const [weight, setWeight] = useState("");
   const [phone_number, setPhone] = useState("");
   const [gender, setGender] = useState("");
+
+  //Comment
+  const [doctor_comment, setDoctorComment] = useState("");
 
   //Classical symptoms
 
@@ -193,9 +196,13 @@ export default function AddDiab() {
       hiv,
       htn,
       liver,
-      prego
+      prego,
+
+      //Comment
+      doctor_comment
     );
-    fetch("https://mediqo-api.onrender.com/registerPatient", {
+    // fetch("https://mediqo-api.onrender.com/registerPatient", {
+    fetch("http://localhost:5000/registerPatient", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -245,6 +252,9 @@ export default function AddDiab() {
         htn,
         liver,
         prego,
+
+        //Comment
+        doctor_comment,
       }),
     })
       .then((res) => res.json())
@@ -314,6 +324,7 @@ export default function AddDiab() {
                       >
                         <MenuItem value="Female">Female</MenuItem>
                         <MenuItem value="Male">Male</MenuItem>
+                        <MenuItem value="Male">Other</MenuItem>
                       </Select>
                     </FormControl>
                   </Box>
@@ -640,8 +651,16 @@ export default function AddDiab() {
                   </Box>
                 </MDBCardBody>
               </MDBCol>
+              
             </MDBCol>
 
+            <TextArea
+              resize="vertical"
+              className="mb-6"
+              appearance="standard"
+              placeholder="Comment"
+              onChange={(e) => setDoctorComment(e.target.value)}
+            />
             <div className="d-grid">
               <button type="submit" className="button-small">
                 SUBMIT

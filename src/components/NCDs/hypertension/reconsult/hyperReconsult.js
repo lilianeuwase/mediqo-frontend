@@ -10,7 +10,7 @@ import {
 } from "mdb-react-ui-kit";
 import "../addHyper.css";
 import "../../../buttons/button.css";
-
+import TextArea from "@atlaskit/textarea";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 
@@ -34,6 +34,10 @@ export default function HyperReconsult({ HyperpatientData }) {
   const [systobp, setSystobp] = useState("");
   const [diastobp, setDiastobp] = useState("");
   const [creatinine, setCreatinine] = useState("");
+  const [hyperkalemia_reslts, setHyperkalemiaReslts] = useState("");
+
+  //Comment
+  const [doctor_comment, setDoctorComment] = useState("");
 
   const [state, setState] = React.useState({
     //Danger Signs
@@ -113,6 +117,7 @@ export default function HyperReconsult({ HyperpatientData }) {
       systobp,
       diastobp,
       creatinine,
+      hyperkalemia_reslts,
 
       //Danger Signs
       confusion,
@@ -127,9 +132,13 @@ export default function HyperReconsult({ HyperpatientData }) {
       bradycardia,
       hyperkalemia,
       prego,
-      hiv
+      hiv,
+
+      //Comment
+      doctor_comment
     );
-    fetch("https://mediqo-api.onrender.com/updateHyperPatient", {
+    // fetch("https://mediqo-api.onrender.com/updateHyperPatient", {
+    fetch("http://localhost:5000/updateHyperPatient", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -151,6 +160,7 @@ export default function HyperReconsult({ HyperpatientData }) {
         systobp,
         diastobp,
         creatinine,
+        hyperkalemia_reslts,
 
         //Danger Signs
         confusion,
@@ -166,6 +176,9 @@ export default function HyperReconsult({ HyperpatientData }) {
         hyperkalemia,
         prego,
         hiv,
+
+        //Comment
+        doctor_comment,
       }),
     })
       .then((res) => res.json())
@@ -173,8 +186,9 @@ export default function HyperReconsult({ HyperpatientData }) {
         console.log(data, "patientRegister");
         if (data.status == "ok") {
           alert("Patient Info is Updated");
-          window.location.href = "/userDetails/oldconsult/oldhypertension/nhyperresults";
-        } 
+          window.location.href =
+            "/userDetails/oldconsult/oldhypertension/nhyperresults";
+        }
         // else {
         //   alert("Something went wrong");
         // }
@@ -213,7 +227,7 @@ export default function HyperReconsult({ HyperpatientData }) {
                     onChange={(e) => setWeight(e.target.value)}
                     required
                   />
-                   <h6
+                  <h6
                     className="text-center fw-normal my-1 pb-3 fw-bold"
                     style={{ letterSpacing: "1px" }}
                   >
@@ -244,11 +258,20 @@ export default function HyperReconsult({ HyperpatientData }) {
                     size="sm"
                     onChange={(e) => setCreatinine(e.target.value)}
                   />
+                           <MDBInput
+                    wrapperClass="mb-2"
+                    label="Hyperkalemia"
+                    id="typeText"
+                    type="text"
+                    size="sm"
+                    onChange={(e) => setHyperkalemiaReslts(e.target.value)}
+                  />
+                    
                 </MDBCardBody>
               </MDBCol>
               <MDBCol className="my-4" md="3">
                 <MDBCardBody className="d-flex flex-column">
-                <Box sx={{ display: "flex" }}>
+                  <Box sx={{ display: "flex" }}>
                     <FormControl
                       sx={{ m: 0 }}
                       component="fieldset"
@@ -315,7 +338,7 @@ export default function HyperReconsult({ HyperpatientData }) {
               {/* Complications*/}
               <MDBCol className="my-4" md="3">
                 <MDBCardBody className="d-flex flex-column">
-                <Box sx={{ display: "flex" }}>
+                  <Box sx={{ display: "flex" }}>
                     <FormControl
                       sx={{ m: 0 }}
                       component="fieldset"
@@ -381,7 +404,7 @@ export default function HyperReconsult({ HyperpatientData }) {
               {/* Risk Factors*/}
               <MDBCol className="my-4" md="3">
                 <MDBCardBody className="d-flex flex-column">
-                <Box sx={{ display: "flex" }}>
+                  <Box sx={{ display: "flex" }}>
                     <FormControl
                       sx={{ m: 0 }}
                       component="fieldset"
@@ -435,7 +458,13 @@ export default function HyperReconsult({ HyperpatientData }) {
                 </MDBCardBody>
               </MDBCol>
             </MDBRow>
-
+            <TextArea
+              resize="vertical"
+              className="mb-6"
+              appearance="standard"
+              placeholder="Comment"
+              onChange={(e) => setDoctorComment(e.target.value)}
+            />
             <div className="d-grid">
               <button type="submit" className="button-small">
                 SUBMIT

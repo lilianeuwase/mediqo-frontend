@@ -10,7 +10,7 @@ import {
 } from "mdb-react-ui-kit";
 import "../../diabetes/addDiab.css";
 import "../../../buttons/button.css";
-
+import TextArea from "@atlaskit/textarea";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
@@ -35,6 +35,9 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
   const [hypoxia, setHypoxia] = useState("");
   const [creatinine, setCreatinine] = useState("");
   const [RR, setRr] = useState("");
+
+  //Comment
+  const [doctor_comment, setDoctorComment] = useState("");
 
   const [state, setState] = React.useState({
     //Emergency Signs
@@ -125,9 +128,13 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
       hiv,
       reflux,
       allergies,
-      heart
+      heart,
+
+      //Comment
+      doctor_comment
     );
-    fetch("https://mediqo-api.onrender.com/updateAsthmaPatient", {
+    // fetch("https://mediqo-api.onrender.com/updateAsthmaPatient", {
+    fetch("http://localhost:5000/updateAsthmaPatient", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -162,6 +169,9 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
         reflux,
         allergies,
         heart,
+
+        //Comment
+        doctor_comment,
       }),
     })
       .then((res) => res.json())
@@ -418,6 +428,13 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
                 </MDBCardBody>
               </MDBCol>
             </MDBCol>
+            <TextArea
+              resize="vertical"
+              className="mb-6"
+              appearance="standard"
+              placeholder="Comment"
+              onChange={(e) => setDoctorComment(e.target.value)}
+            />
             <div className="d-grid">
               <button type="submit" className="button-small">
                 SUBMIT

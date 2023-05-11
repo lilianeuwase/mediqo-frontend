@@ -20,7 +20,8 @@ export default function Result1({phone_number}) {
       patient_manage,
       medication
     );
-    fetch("https://mediqo-api.onrender.com/updatePatient1", {
+    // fetch("https://mediqo-api.onrender.com/updatePatient1", {
+      fetch("http://localhost:5000/updatePatient1", {
       method: "POST",
       crossDomain: true,
       headers: {
