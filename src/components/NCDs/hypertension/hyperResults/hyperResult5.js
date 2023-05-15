@@ -3,13 +3,15 @@ import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 import InfoCard from "../../../cards/infoCard";
 import LifestyleCard from "../../../cards/lifestyleCard";
 import ProfileCard from "../../../cards/profileCard";
+import OneLine from "../medication/1stLine";
+import {medication} from "../medication/1stLine";
 
 export default function HyperResult5({ i }) {
   let weight = i.weight ?? [];
   let height = i.height ?? [];
   let bmi = i.bmi ?? [];
-  let systobp =i.systobp ?? [];
-  let diastobp =i.diastobp ?? [];
+  let systobp = i.systobp ?? [];
+  let diastobp = i.diastobp ?? [];
 
   const b = i.consultations - 1 ?? 0;
   const phone_number = i.phone_number;
@@ -19,9 +21,9 @@ export default function HyperResult5({ i }) {
   const diagnosis = "Hypertension";
   const patient_manage = "Manage as Outpatient";
   const hyper_stage = "Stage I Hypertension";
-  const medication =
-    "If unable to achieve a blood pressure < 140/90 in 12 months, start one Antihypertensive";
-    const control = "";
+  // const medication ="";
+
+  const control = "";
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -34,7 +36,7 @@ export default function HyperResult5({ i }) {
       control
     );
     // fetch("https://mediqo-api.onrender.com/updateHyperPatient1", {
-      fetch("http://localhost:5000/updateHyperPatient1", {
+    fetch("http://localhost:5000/updateHyperPatient1", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -77,9 +79,12 @@ export default function HyperResult5({ i }) {
               height={height[b]}
               bmi={bmi[b]}
               phone={i.phone_number}
-              lab1={"BP: " +systobp[b] + "/"+i.diastobp[b]}
+              lab1={"BP: " + systobp[b] + "/" + diastobp[b]}
+              lab2={i.dates[b - 1]}
+              // lab3={medication}
             />
           </MDBCol>
+
           <MDBCol>
             <MDBRow>
               <MDBCol sm="6">
@@ -115,25 +120,19 @@ export default function HyperResult5({ i }) {
                   class="text-dark mb-4"
                   header="Next Step"
                   textClass="fw-bold text-dark"
-                  text={medication}
+                  text="If unable to achieve a blood pressure < 140/90 in 12 months, start one Antihypertensive"
                 />
               </MDBCol>
             </MDBRow>
           </MDBCol>
         </MDBRow>
-        <MDBRow>
-          <MDBCol sm="6">
-            <LifestyleCard />
-          </MDBCol>
-
-          <MDBCol sm="2">
-            <div className="d-grid mt-4">
-              <button type="submit" className="button-3">
-                FINISH & SAVE
-              </button>
-            </div>
-          </MDBCol>
-        </MDBRow>
+        <OneLine />
+        <LifestyleCard />
+        <div className="d-grid mt-4">
+          <button type="submit" className="button-3">
+            FINISH & SAVE
+          </button>
+        </div>
       </form>
     </MDBCol>
   );

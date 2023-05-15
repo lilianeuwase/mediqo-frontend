@@ -36,6 +36,12 @@ export default function HyperReconsult({ HyperpatientData }) {
   const [creatinine, setCreatinine] = useState("");
   const [hyperkalemia_reslts, setHyperkalemiaReslts] = useState("");
 
+  //Vital Signs
+  const [temp, setTemp] = useState("");
+  const [HR, setHR] = useState("");
+  const [O2, setO2] = useState("");
+  const [RR, setRR] = useState("");
+
   //Comment
   const [doctor_comment, setDoctorComment] = useState("");
 
@@ -135,7 +141,13 @@ export default function HyperReconsult({ HyperpatientData }) {
       hiv,
 
       //Comment
-      doctor_comment
+      doctor_comment,
+
+      //Vital Signs
+      temp,
+      HR,
+      O2,
+      RR
     );
     // fetch("https://mediqo-api.onrender.com/updateHyperPatient", {
     fetch("http://localhost:5000/updateHyperPatient", {
@@ -179,6 +191,12 @@ export default function HyperReconsult({ HyperpatientData }) {
 
         //Comment
         doctor_comment,
+
+        //Vital Signs
+        temp,
+        HR,
+        O2,
+        RR,
       }),
     })
       .then((res) => res.json())
@@ -258,7 +276,7 @@ export default function HyperReconsult({ HyperpatientData }) {
                     size="sm"
                     onChange={(e) => setCreatinine(e.target.value)}
                   />
-                           <MDBInput
+                  <MDBInput
                     wrapperClass="mb-2"
                     label="Hyperkalemia"
                     id="typeText"
@@ -266,7 +284,45 @@ export default function HyperReconsult({ HyperpatientData }) {
                     size="sm"
                     onChange={(e) => setHyperkalemiaReslts(e.target.value)}
                   />
-                    
+                  <h6
+                    className="text-center fw-normal my-2 pb-3 fw-bold mt-4"
+                    style={{ letterSpacing: "1px" }}
+                  >
+                    Vital Signs
+                  </h6>
+
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Temperature (C°)"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setTemp(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Heart Rate"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setHR(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="O2 Saturation %"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setO2(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Respiratory Rate"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setRR(e.target.value)}
+                  />
                 </MDBCardBody>
               </MDBCol>
               <MDBCol className="my-4" md="3">

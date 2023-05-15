@@ -8,7 +8,7 @@ import {
 
 export default function LifestyleCard() {
   return (
-    <MDBCard >
+    <MDBCard className="mt-4">
       <MDBCardHeader> <strong>Lifestyle Modifications</strong></MDBCardHeader>
       <MDBListGroup flush>
         <MDBListGroupItem>Salt Reduction</MDBListGroupItem>

@@ -29,7 +29,7 @@ export default function AsthmaPatientTable({}) {
   //fetching all patient
   const getAllPatient = () => {
     // fetch("https://mediqo-api.onrender.com/getAllAsthmaPatient", {
-      fetch("http://localhost:5000/getAllAsthmaPatient", {
+    fetch("http://localhost:5000/getAllAsthmaPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -49,7 +49,7 @@ export default function AsthmaPatientTable({}) {
   const deletePatient = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
       // fetch("https://mediqo-api.onrender.com/deleteAsthmaPatient", {
-        fetch("http://localhost:5000/deleteAsthmaPatient", {
+      fetch("http://localhost:5000/deleteAsthmaPatient", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -97,9 +97,45 @@ export default function AsthmaPatientTable({}) {
       });
   }
 
+  //Asthma Retrieval
+  function handleSubmit(phone_number, lname) {
+    // e.preventDefault();
+
+    console.log(phone_number, lname);
+    // fetch("https://mediqo-api.onrender.com/login-patient", {
+    fetch("http://localhost:5000/login-asthmapatient", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        phone_number,
+        lname,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "patientRegister");
+        if (data.status == "ok") {
+          alert("Retrieval is  successful");
+          window.localStorage.setItem("Asthmapatienttoken", data.data);
+          window.localStorage.setItem("Retrieved", true);
+
+          window.location.href =
+            "/userDetails/oldconsult/oldasthma/oldasthmapatientdetails2";
+        } else {
+          alert("Diabetes Patient Not found");
+          // window.location.href = "/userDetails/oldconsult/olddiabetes";
+        }
+      });
+  }
+
   return (
     <div className="table">
-    <hr class="hr hr-blurry" />
+      <hr class="hr hr-blurry" />
       <div className="table-container">
         <h5
           className="text-center fw-normal my-5 fw-bold"
@@ -110,17 +146,19 @@ export default function AsthmaPatientTable({}) {
         <MDBTable responsive hover small align="middle">
           <MDBTableHead>
             <tr>
-            <th scope="col">Patients</th>
+              <th scope="col">Patients</th>
               <th scope="col">Age</th>
               <th scope="col">Phone Number</th>
               <th scope="col">Gender</th>
               <th scope="col">Consultations</th>
-              <th scope="col">Delete</th>
+              <th scope="col">First Consultation</th>
             </tr>
           </MDBTableHead>
           {data.map((i) => {
             return (
-              <MDBTableBody>
+              <MDBTableBody
+                onClick={() => handleSubmit(i.phone_number, i.lname)}
+              >
                 <tr>
                   <td>
                     <div className="d-flex align-items-center">
@@ -151,12 +189,7 @@ export default function AsthmaPatientTable({}) {
                     <p className="mb-0">{i.consultations}</p>
                   </td>
                   <td>
-                    <p className="text-muted mb-0">
-                      <FontAwesomeIcon
-                        icon={faTrash}
-                        onClick={() => deletePatient(i._id, i.fname)}
-                      />
-                    </p>
+                    <p className="mb-0">{i.dates[0]}</p>
                   </td>
                 </tr>
               </MDBTableBody>

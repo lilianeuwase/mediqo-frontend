@@ -94,13 +94,13 @@ export default function HyperPatientTable({}) {
       });
   }
 
-   //Hypertension Retrieval
-   function handleSubmit(phone_number, lname) {
+  //Hypertension Retrieval
+  function handleSubmit(phone_number, lname) {
     // e.preventDefault();
 
     console.log(phone_number, lname);
-    // fetch("https://mediqo-api.onrender.com/login-patient", {
-      fetch("http://localhost:5000/login-hyperpatient", {
+    // fetch("https://mediqo-api.onrender.com/login-hyperpatient", {
+    fetch("http://localhost:5000/login-hyperpatient", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -118,16 +118,15 @@ export default function HyperPatientTable({}) {
         console.log(data, "patientRegister");
         if (data.status == "ok") {
           alert("Retrieval is  successful");
-          window.localStorage.setItem("patienttoken", data.data);
+          window.localStorage.setItem("Hyperpatienttoken", data.data);
           window.localStorage.setItem("Retrieved", true);
 
-          window.location.href = "/userDetails/oldconsult/oldhypertension/oldhyperpatientdetails2";
+          window.location.href =
+            "/userDetails/oldconsult/oldhypertension/oldhyperpatientdetails2";
+        } else {
+          alert("Diabetes Patient Not found");
+          // window.location.href = "/userDetails/oldconsult/olddiabetes";
         }
-       else {
-        alert("Diabetes Patient Not found");
-        // window.location.href = "/userDetails/oldconsult/olddiabetes";
-      }
-        
       });
   }
 
@@ -144,7 +143,7 @@ export default function HyperPatientTable({}) {
         <MDBTable responsive hover small align="middle">
           <MDBTableHead>
             <tr>
-            <th scope="col">Patients</th>
+              <th scope="col">Patients</th>
               <th scope="col">Age</th>
               <th scope="col">Phone Number</th>
               <th scope="col">Gender</th>
@@ -152,9 +151,12 @@ export default function HyperPatientTable({}) {
               <th scope="col">First Consultation</th>
             </tr>
           </MDBTableHead>
+          
           {data.map((i) => {
             return (
-              <MDBTableBody  onClick={() => handleSubmit(i.phone_number, i.lname)}>
+              <MDBTableBody
+                onClick={() => handleSubmit(i.phone_number, i.lname)}
+              >
                 <tr>
                   <td>
                     <div className="d-flex align-items-center">

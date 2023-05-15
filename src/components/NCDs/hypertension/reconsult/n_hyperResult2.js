@@ -10,14 +10,17 @@ export default function NHyperResult2({ i, contro, titra }) {
   let height = i.height ?? [];
   let bmi = i.bmi ?? [];
   let med = i.medication ?? [];
+  let diagnosis_list = i.diagnosis ?? [];
+  let patient_manage_list = i.patient_manage ?? [];
+  let hyper_stage_list = i.hyper_stage ?? [];
 
   const b = i.consultations - 1 ?? 0;
   const phone_number = i.phone_number;
   const current_name = i.lname + " " + i.fname;
   //Store Results
-  const diagnosis = "";
-  const patient_manage = "";
-  const hyper_stage = "";
+  const diagnosis = diagnosis_list[b];
+  const patient_manage = patient_manage_list[b];
+  const hyper_stage = hyper_stage_list[b];
   const medication = med[b];
   const control = contro;
   const titration = titra;

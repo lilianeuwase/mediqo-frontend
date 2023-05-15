@@ -39,6 +39,12 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
   //Comment
   const [doctor_comment, setDoctorComment] = useState("");
 
+  //Vital Signs
+  const [temp, setTemp] = useState("");
+  const [BP, setBP] = useState("");
+  const [HR, setHR] = useState("");
+  const [O2, setO2] = useState("");
+
   const [state, setState] = React.useState({
     //Emergency Signs
     acute_dyspnea: false,
@@ -131,7 +137,13 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
       heart,
 
       //Comment
-      doctor_comment
+      doctor_comment,
+
+      //Vital Signs
+      temp,
+      HR,
+      O2,
+      BP
     );
     // fetch("https://mediqo-api.onrender.com/updateAsthmaPatient", {
     fetch("http://localhost:5000/updateAsthmaPatient", {
@@ -172,6 +184,12 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
 
         //Comment
         doctor_comment,
+
+        //Vital Signs
+        temp,
+        HR,
+        O2,
+        BP,
       }),
     })
       .then((res) => res.json())
@@ -420,6 +438,45 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
                       </FormGroup>
                     </FormControl>
                   </Box>
+                  <h6
+                    className="text-center fw-normal my-0 pb-1 fw-bold mt-4"
+                    style={{ letterSpacing: "1px" }}
+                  >
+                    Vital Signs
+                  </h6>
+
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Temperature (C°)"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setTemp(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Heart Rate"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setHR(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Blood Pressure"
+                    id="typeText"
+                    type="text"
+                    onChange={(e) => setBP(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="O2 Saturation %"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setO2(e.target.value)}
+                  />
                 </MDBCardBody>
               </MDBCol>
               <MDBCol md="8 modal-dialog-centered" className="ms-5">

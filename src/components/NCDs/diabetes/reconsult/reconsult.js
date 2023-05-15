@@ -35,6 +35,13 @@ export default function Reconsult({ patientData }) {
   const [fastglucose, setFastGlucose] = useState("");
   const [creatinine, setCreatinine] = useState("");
 
+  //Vital Signs
+  const [temp, setTemp] = useState("");
+  const [BP, setBP] = useState("");
+  const [HR, setHR] = useState("");
+  const [O2, setO2] = useState("");
+  const [RR, setRR] = useState("");
+
   //Comment
   const [doctor_comment, setDoctorComment] = useState("");
 
@@ -149,7 +156,14 @@ export default function Reconsult({ patientData }) {
       prego,
 
       //Comment
-      doctor_comment
+      doctor_comment,
+
+      //Vital Signs
+      temp,
+      HR,
+      O2,
+      RR,
+      BP
     );
     // fetch("https://mediqo-api.onrender.com/updatePatient", {
     fetch("http://localhost:5000/updatePatient", {
@@ -196,6 +210,13 @@ export default function Reconsult({ patientData }) {
 
         //Comment
         doctor_comment,
+
+        //Vital Signs
+        temp,
+        HR,
+        O2,
+        RR,
+        BP,
       }),
     })
       .then((res) => res.json())
@@ -282,6 +303,53 @@ export default function Reconsult({ patientData }) {
                     type="text"
                     size="sm"
                     onChange={(e) => setCreatinine(e.target.value)}
+                  />
+                  <h6
+                    className="text-center fw-normal my-0 pb-1 fw-bold mt-4"
+                    style={{ letterSpacing: "1px" }}
+                  >
+                    Vital Signs
+                  </h6>
+
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Temperature (C°)"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setTemp(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Heart Rate"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setHR(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Blood Pressure"
+                    id="typeText"
+                    type="text"
+                    onChange={(e) => setBP(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="O2 Saturation %"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setO2(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Respiratory Rate"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setRR(e.target.value)}
                   />
                 </MDBCardBody>
               </MDBCol>

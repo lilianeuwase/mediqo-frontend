@@ -34,6 +34,9 @@ import NAsthmaResults from "./components/NCDs/asthma/n_asthmaResults";
 import OldPatientDetails2 from "./components/NCDs/diabetes/reconsult/patients/oldPatientDetails2";
 import DiabConsTable from "./components/NCDs/diabetes/reconsult/patients/diabConsTable";
 import OldHyperPatientDetails2 from "./components/NCDs/hypertension/reconsult/patients/oldHyperPatientDetails2";
+import OldAsthmaPatientDetails2 from "./components/NCDs/asthma/reconsult/patients/oldAsthmaPatientDetails2";
+import OneLine from "./components/NCDs/hypertension/medication/1stLine";
+import TwoLine from "./components/NCDs/hypertension/medication/2ndLine";
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
@@ -82,6 +85,10 @@ function App() {
               <Route
             path="/userDetails/oldconsult/oldasthma/oldasthmapatientdetails"
             element={isLoggedIn == "true" ? <OldAsthmaPatientDetails /> : <Login />}
+          />
+                      <Route
+            path="/userDetails/oldconsult/oldasthma/oldasthmapatientdetails2"
+            element={isLoggedIn == "true" ? <OldAsthmaPatientDetails2 /> : <Login />}
           />
                <Route
             path="/userDetails/oldconsult/oldhypertension"
@@ -163,7 +170,7 @@ function App() {
           />
 
           {/* For View Purposes */}
-          <Route path="/view" element={<AsthmaStepsTable />} />
+          <Route path="/view" element={<TwoLine />} />
         </Routes>
         <Footer />
       </div>

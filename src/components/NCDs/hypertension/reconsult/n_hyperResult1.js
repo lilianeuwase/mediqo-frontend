@@ -9,20 +9,24 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import TwoLine, { medication } from "../medication/2ndLine";
 
 export default function NHyperResult1({ i, contro, titra }) {
   let weight = i.weight ?? [];
   let height = i.height ?? [];
   let bmi = i.bmi ?? [];
+  let diagnosis_list = i.diagnosis ?? [];
+  let patient_manage_list = i.patient_manage ?? [];
+  let hyper_stage_list = i.hyper_stage ?? [];
 
   const b = i.consultations - 1 ?? 0;
   const phone_number = i.phone_number;
   const current_name = i.lname + " " + i.fname;
   //Store Results
-  const diagnosis = "";
-  const patient_manage = "";
-  const hyper_stage = "";
-  const [medication, setMedication] = useState("");
+  const diagnosis = diagnosis_list[b];
+  const patient_manage = patient_manage_list[b];
+  const hyper_stage = hyper_stage_list[b];
+  // const [medication, setMedication] = useState("");
   const control = contro;
   const titration = titra;
 
@@ -112,7 +116,7 @@ export default function NHyperResult1({ i, contro, titra }) {
             <LifestyleCard />
           </MDBCol>
 
-          <MDBCol sm="8">
+          {/* <MDBCol sm="8">
             <Box className="box">
               <FormControl size="small" fullWidth className="mt-4">
                 <InputLabel id="demo-simple-select-label">
@@ -134,7 +138,8 @@ export default function NHyperResult1({ i, contro, titra }) {
                 </Select>
               </FormControl>
             </Box>
-          </MDBCol>
+          </MDBCol> */}
+          <TwoLine/>
           <MDBCol sm="2">
             <div className="d-grid mt-4">
               <button type="submit" className="button-3">

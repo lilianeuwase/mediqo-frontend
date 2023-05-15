@@ -9,15 +9,16 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import LifestyleCard from "../../../cards/lifestyleCard";
 import ProfileCard from "../../../cards/profileCard";
+import ThreeLine from "../medication/3rdLine";
+import {medication} from "../medication/3rdLine";
 
 export default function HyperResult2({ i }) {
-  
   let weight = i.weight ?? [];
   let height = i.height ?? [];
   let bmi = i.bmi ?? [];
-  let systobp =i.systobp ?? [];
-  let diastobp =i.diastobp ?? [];
-  
+  let systobp = i.systobp ?? [];
+  let diastobp = i.diastobp ?? [];
+
   const b = i.consultations - 1 ?? 0;
   const phone_number = i.phone_number;
   const current_name = i.lname + " " + i.fname;
@@ -26,7 +27,6 @@ export default function HyperResult2({ i }) {
   const diagnosis = "Hypertension";
   const patient_manage = "Manage as Outpatient";
   const hyper_stage = "Stage III Hypertension";
-  const [medication, setMedication] = useState("");
   const control = "";
 
   const handleSubmit = (e) => {
@@ -41,7 +41,7 @@ export default function HyperResult2({ i }) {
       control
     );
     // fetch("https://mediqo-api.onrender.com/updateHyperPatient1", {
-      fetch("http://localhost:5000/updateHyperPatient1", {
+    fetch("http://localhost:5000/updateHyperPatient1", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -84,7 +84,8 @@ export default function HyperResult2({ i }) {
               height={height[b]}
               bmi={bmi[b]}
               phone={i.phone_number}
-              lab1={"BP: " +systobp[b] + "/"+i.diastobp[b]}
+              lab1={"BP: " + systobp[b] + "/" + diastobp[b]}
+              lab2={i.dates[b - 1]}
             />
           </MDBCol>
           <MDBCol>
@@ -133,46 +134,13 @@ export default function HyperResult2({ i }) {
             </MDBRow>
           </MDBCol>
         </MDBRow>
-        <MDBRow>
-          <MDBCol sm="9">
-            <HyperMedsTable />
-          </MDBCol>
-          <MDBCol sm="3">
-            <LifestyleCard />
-          </MDBCol>
-        </MDBRow>
-        <MDBRow>
-          <MDBCol sm="8">
-            <Box className="box">
-              <FormControl size="small" fullWidth className="mt-4">
-                <InputLabel id="demo-simple-select-label">
-                  Prescribed Medicine
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={medication}
-                  label="Medication"
-                  onChange={(e) => setMedication(e.target.value)}
-                  required
-                >
-                  <MenuItem value="1st Line">1st Line</MenuItem>
-                  <MenuItem value="2nd Line">2nd Line</MenuItem>
-                  <MenuItem value="3rd Line">3rd Line</MenuItem>
-                  <MenuItem value="4th Line">4th Line</MenuItem>
-                  <MenuItem value="4th Line">4th Line</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-          </MDBCol>
-          <MDBCol sm="2">
-            <div className="d-grid mt-4">
-              <button type="submit" className="button-3">
-                FINISH & SAVE
-              </button>
-            </div>
-          </MDBCol>
-        </MDBRow>
+        <ThreeLine/>
+        <LifestyleCard />
+        <div className="d-grid mt-4">
+          <button type="submit" className="button-3">
+            FINISH & SAVE
+          </button>
+        </div>
       </form>
     </MDBCol>
   );

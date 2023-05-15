@@ -4,6 +4,8 @@ import InfoCard from "../../../cards/infoCard";
 import LifestyleCard from "../../../cards/lifestyleCard";
 import HyperComTable from "../../../tables/hypertension/hypercomTable";
 import ProfileCard from "../../../cards/profileCard";
+import FourLine from "../medication/4thLine";
+import { medication } from "../medication/4thLine";
 
 export default function HyperResult1({i}) {
 
@@ -21,7 +23,7 @@ export default function HyperResult1({i}) {
   const diagnosis = "Hypertension";
   const patient_manage = "Call Physician and Admit to District Hospital";
   const hyper_stage = "Hypertensive Emergency";
-  const medication = "Ace-Inhibitors";
+  // const medication = "Ace-Inhibitors";
   const control = "";
 
   const handleSubmit = (e) => {
@@ -79,7 +81,8 @@ export default function HyperResult1({i}) {
               height={height[b]}
               bmi={bmi[b]}
               phone={i.phone_number}
-              lab1={"BP: " +systobp[b] + "/"+i.diastobp[b]}
+              lab1={"BP: " +systobp[b] + "/"+diastobp[b]}
+              lab2={i.dates[b - 1]}
             />
           </MDBCol>
           <MDBCol>
@@ -117,7 +120,7 @@ export default function HyperResult1({i}) {
                   class="text-dark mb-4"
                   header="Next Step"
                   textClass="fw-bold text-dark"
-                  text={medication}
+                  text="Ace-Inhibitors"
                 />
               </MDBCol>
             </MDBRow>
@@ -131,7 +134,7 @@ export default function HyperResult1({i}) {
             <LifestyleCard />
           </MDBCol>
         </MDBRow>
-       
+       <FourLine/>
           <div className="d-grid">
             <button type="submit" className="button-3">
               FINISH & SAVE

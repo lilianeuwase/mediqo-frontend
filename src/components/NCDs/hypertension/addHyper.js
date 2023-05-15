@@ -43,6 +43,12 @@ export default function AddHyper() {
   const [creatinine, setCreatinine] = useState("");
   const [hyperkalemia_reslts, setHyperkalemiaReslts] = useState("");
 
+  //Vital Signs
+  const [temp, setTemp] = useState("");
+  const [HR, setHR] = useState("");
+  const [O2, setO2] = useState("");
+  const [RR, setRR] = useState("");
+
   const [state, setState] = React.useState({
     //Danger Signs
     confusion: false,
@@ -141,7 +147,13 @@ export default function AddHyper() {
       hiv,
 
       //Comment
-      doctor_comment
+      doctor_comment,
+
+      //Vital Signs
+      temp,
+      HR,
+      O2,
+      RR
     );
     // fetch("https://mediqo-api.onrender.com/registerHyperPatient", {
     fetch("http://localhost:5000/registerHyperPatient", {
@@ -189,6 +201,12 @@ export default function AddHyper() {
 
         //Comment
         doctor_comment,
+
+        //Vital Signs
+        temp,
+        HR,
+        O2,
+        RR,
       }),
     })
       .then((res) => res.json())
@@ -206,20 +224,21 @@ export default function AddHyper() {
 
   return (
     <div className="container">
-      <MDBContainer className="my-4">
+      <MDBContainer className="my-0">
         <MDBCard>
           <form onSubmit={handleSubmit}>
             <MDBCol md="8 modal-dialog-centered">
               <MDBCol md="7 modal-dialog-centered">
                 <MDBCardBody className="d-flex flex-column">
-                  <h5
-                    className="text-center fw-normal my-2 pb-3 fw-bold"
+                  <h6
+                    className="text-center fw-normal my-2 pb-2 fw-bold"
                     style={{ letterSpacing: "1px" }}
                   >
                     Patient Profile
-                  </h5>
+                  </h6>
 
                   <MDBInput
+                    size="sm"
                     wrapperClass="mb-2"
                     label="First name"
                     id="typeText"
@@ -228,6 +247,7 @@ export default function AddHyper() {
                     required
                   />
                   <MDBInput
+                    size="sm"
                     wrapperClass="mb-2"
                     label="Last name"
                     id="typeText"
@@ -236,6 +256,7 @@ export default function AddHyper() {
                     required
                   />
                   <MDBInput
+                    size="sm"
                     wrapperClass="mb-2"
                     label="Patient Age"
                     id="typeNumber"
@@ -263,6 +284,7 @@ export default function AddHyper() {
                     </FormControl>
                   </Box>
                   <MDBInput
+                    size="sm"
                     wrapperClass="mb-2"
                     label="Height(Meters)"
                     id="typeNumber"
@@ -271,6 +293,7 @@ export default function AddHyper() {
                     onChange={(e) => setHeight(e.target.value)}
                   />
                   <MDBInput
+                    size="sm"
                     wrapperClass="mb-2"
                     label="Weight(Kgs)"
                     id="typeNumber"
@@ -279,12 +302,52 @@ export default function AddHyper() {
                     required
                   />
                   <MDBInput
+                    size="sm"
                     wrapperClass="mb-2"
                     label="Phone number"
                     id="typePhone"
                     type="tel"
                     onChange={(e) => setPhone(e.target.value)}
                     required
+                  />
+                  <h6
+                    className="text-center fw-normal my-2 pb-3 fw-bold mt-4"
+                    style={{ letterSpacing: "1px" }}
+                  >
+                    Vital Signs
+                  </h6>
+
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Temperature (C°)"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setTemp(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Heart Rate"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setHR(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="O2 Saturation %"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setO2(e.target.value)}
+                  />
+                  <MDBInput
+                    size="sm"
+                    wrapperClass="mb-2"
+                    label="Respiratory Rate"
+                    id="typeNumber"
+                    type="number"
+                    onChange={(e) => setRR(e.target.value)}
                   />
                 </MDBCardBody>
               </MDBCol>
@@ -299,12 +362,12 @@ export default function AddHyper() {
                       variant="standard"
                     >
                       <FormLabel component="legend">
-                        <h5
+                        <h6
                           className="text-center text-dark fw-normal my-0 pb-1 fw-bold"
                           style={{ letterSpacing: "1px" }}
                         >
                           Danger Signs
-                        </h5>
+                        </h6>
                         <FormHelperText>
                           Tick the signsaccordingly
                         </FormHelperText>
@@ -353,12 +416,12 @@ export default function AddHyper() {
                       </FormGroup>
                     </FormControl>
                   </Box>
-                  <h5
+                  <h6
                     className="text-center fw-normal my-1 pb-3 fw-bold"
                     style={{ letterSpacing: "1px" }}
                   >
                     Lab Results
-                  </h5>
+                  </h6>
                   <MDBInput
                     wrapperClass="mb-2"
                     label="Systolic blood pressure (mmHg)"
@@ -384,7 +447,7 @@ export default function AddHyper() {
                     size="sm"
                     onChange={(e) => setCreatinine(e.target.value)}
                   />
-                        <MDBInput
+                  <MDBInput
                     wrapperClass="mb-2"
                     label="Hyperkalemia"
                     id="typeText"
@@ -405,12 +468,12 @@ export default function AddHyper() {
                       variant="standard"
                     >
                       <FormLabel component="legend">
-                        <h5
+                        <h6
                           className="text-center text-dark fw-normal my-2 pb-1 fw-bold"
                           style={{ letterSpacing: "1px" }}
                         >
                           Complications
-                        </h5>
+                        </h6>
                         <FormHelperText>
                           Tick complications accordingly
                         </FormHelperText>
@@ -467,12 +530,12 @@ export default function AddHyper() {
                       variant="standard"
                     >
                       <FormLabel component="legend">
-                        <h5
+                        <h6
                           className="text-center text-dark fw-normal my-0 pb-1 fw-bold"
                           style={{ letterSpacing: "1px" }}
                         >
                           Risk Factors
-                        </h5>
+                        </h6>
                         <FormHelperText>
                           Tick symptoms accordingly
                         </FormHelperText>
