@@ -7,7 +7,8 @@ export default function OldHyperPatientDetails2() {
 
   useEffect(() => {
     // fetch("https://mediqo-api.onrender.com/HyperpatientData", {
-      fetch("http://localhost:5000/hyperpatientData", {
+      // fetch("http://localhost:5000/hyperpatientData", {
+        fetch("https://fantastic-python.cyclic.app/hyperpatientData", {
       method: "POST",
       crossDomain: true,
       headers: {

@@ -29,7 +29,8 @@ export default function UserTable({ userData }) {
   //fetching all user
   const getAllUser = () => {
     // fetch("https://mediqo-api.onrender.com/getAllUser", {
-      fetch("http://localhost:5000/getAllUser", {
+      // fetch("http://localhost:5000/getAllUser", {
+        fetch("https://fantastic-python.cyclic.app/getAllUser", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -49,7 +50,8 @@ export default function UserTable({ userData }) {
   const deleteUser = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
       // fetch("https://mediqo-api.onrender.com/deleteUser", {
-        fetch("http://localhost:5000/deleteUser", {
+        // fetch("http://localhost:5000/deleteUser", {
+          fetch("https://fantastic-python.cyclic.app/deleteUser", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -84,7 +86,8 @@ export default function UserTable({ userData }) {
   function getPaginatedUsers() {
     fetch(
       // `https://mediqo-api.onrender.com/paginatedUsers?page=${currentPage.current}&limit=${limit}`,
-      `http://localhost:5000/paginatedUsers?page=${currentPage.current}&limit=${limit}`,
+      // `http://localhost:5000/paginatedUsers?page=${currentPage.current}&limit=${limit}`,
+      `https://fantastic-python.cyclic.app/paginatedUsers?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }

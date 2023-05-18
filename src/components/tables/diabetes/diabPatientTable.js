@@ -26,7 +26,8 @@ export default function DiabPatientTable({}) {
   //fetching all patient
   const getAllPatient = () => {
     // fetch("https://mediqo-api.onrender.com/getAllPatient", {
-    fetch("http://localhost:5000/getAllPatient", {
+    // fetch("http://localhost:5000/getAllPatient", {
+      fetch("https://fantastic-python.cyclic.app/getAllPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -40,7 +41,8 @@ export default function DiabPatientTable({}) {
   const deletePatient = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
       // fetch("https://mediqo-api.onrender.com/deletePatient", {
-      fetch("http://localhost:5000/deletePatient", {
+      // fetch("http://localhost:5000/deletePatient", {
+        fetch("https://fantastic-python.cyclic.app/deletePatient", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -86,7 +88,8 @@ export default function DiabPatientTable({}) {
   function getPaginatedPatients() {
     fetch(
       // `https://mediqo-api.onrender.com/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
-      `http://localhost:5000/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      // `http://localhost:5000/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      `https://fantastic-python.cyclic.app/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }
@@ -105,7 +108,8 @@ export default function DiabPatientTable({}) {
 
     console.log(phone_number, lname);
     // fetch("https://mediqo-api.onrender.com/login-patient", {
-      fetch("http://localhost:5000/login-patient", {
+      // fetch("http://localhost:5000/login-patient", {
+        fetch("https://fantastic-python.cyclic.app/login-patient", {
       method: "POST",
       crossDomain: true,
       headers: {

@@ -29,7 +29,8 @@ export default function NResult1({ i, contro, titra }) {
 
     console.log(phone_number, diagnosis, patient_manage, medication, control);
    // fetch("https://mediqo-api.onrender.com/updatePatient1", {
-      fetch("http://localhost:5000/updatePatient1", {
+      // fetch("http://localhost:5000/updatePatient1", {
+        fetch("https://fantastic-python.cyclic.app/updatePatient1", {
       method: "POST",
       crossDomain: true,
       headers: {

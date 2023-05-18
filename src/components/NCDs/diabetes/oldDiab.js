@@ -14,7 +14,8 @@ export default function OldDiab() {
 
     console.log(phone_number, lname);
     // fetch("https://mediqo-api.onrender.com/login-patient", {
-      fetch("http://localhost:5000/login-patient", {
+      // fetch("http://localhost:5000/login-patient", {
+        fetch("https://fantastic-python.cyclic.app/login-patient", {
       method: "POST",
       crossDomain: true,
       headers: {

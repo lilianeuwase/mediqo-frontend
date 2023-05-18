@@ -14,7 +14,8 @@ export default function NHyperResults() {
 
   useEffect(() => {
     // fetch("https://mediqo-api.onrender.com/HyperpatientData", {
-      fetch("http://localhost:5000/HyperpatientData", {
+      // fetch("http://localhost:5000/HyperpatientData", {
+        fetch("https://fantastic-python.cyclic.app/HyperpatientData", {
       method: "POST",
       crossDomain: true,
       headers: {

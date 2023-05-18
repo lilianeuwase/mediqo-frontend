@@ -194,7 +194,8 @@ export default function AddAsthma() {
       BP
     );
     // fetch("https://mediqo-api.onrender.com/registerAsthmaPatient", {
-    fetch("http://localhost:5000/registerAsthmaPatient", {
+    // fetch("http://localhost:5000/registerAsthmaPatient", {
+      fetch("https://fantastic-python.cyclic.app/registerAsthmaPatient", {
       method: "POST",
       crossDomain: true,
       headers: {

@@ -8,7 +8,8 @@ export default function UserDetails() {
 
   useEffect(() => {
     // fetch("https://mediqo-api.onrender.com/userData", {
-      fetch("http://localhost:5000/userData", {
+      // fetch("http://localhost:5000/userData", {
+        fetch("https://fantastic-python.cyclic.app/userData", {
       method: "POST",
       crossDomain: true,
       headers: {

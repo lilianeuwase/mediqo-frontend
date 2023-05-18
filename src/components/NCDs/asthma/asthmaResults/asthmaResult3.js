@@ -25,7 +25,8 @@ export default function AsthmaResult3({ i }) {
 
     console.log(phone_number, diagnosis, patient_manage, medication);
     // fetch("https://mediqo-api.onrender.com/updateAsthmaPatient1", {
-      fetch("http://localhost:5000/updateAsthmaPatient1", {
+      // fetch("http://localhost:5000/updateAsthmaPatient1", {
+        fetch("https://fantastic-python.cyclic.app/updateAsthmaPatient1", {
       method: "POST",
       crossDomain: true,
       headers: {

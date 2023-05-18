@@ -14,7 +14,8 @@ export default function OldAsthma() {
 
     console.log(phone_number, lname);
     // fetch("https://mediqo-api.onrender.com/login-Asthmapatient", {
-      fetch("http://localhost:5000/AsthmapatientData", {
+      // fetch("http://localhost:5000/AsthmapatientData", {
+        fetch("https://fantastic-python.cyclic.app/AsthmapatientData", {
       method: "POST",
       crossDomain: true,
       headers: {

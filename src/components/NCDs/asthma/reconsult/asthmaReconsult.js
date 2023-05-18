@@ -146,7 +146,8 @@ export default function AsthmaReconsult({ AsthmapatientData }) {
       BP
     );
     // fetch("https://mediqo-api.onrender.com/updateAsthmaPatient", {
-    fetch("http://localhost:5000/updateAsthmaPatient", {
+    // fetch("http://localhost:5000/updateAsthmaPatient", {
+      fetch("https://fantastic-python.cyclic.app/updateAsthmaPatient", {
       method: "POST",
       crossDomain: true,
       headers: {

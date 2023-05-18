@@ -14,7 +14,8 @@ export default function OldHyper() {
 
     console.log(phone_number, lname);
     // fetch("https://mediqo-api.onrender.com/login-Hyperpatient", {
-      fetch("http://localhost:5000/login-Hyperpatient", {
+      // fetch("http://localhost:5000/login-Hyperpatient", {
+        fetch("https://fantastic-python.cyclic.app/login-Hyperpatient", {
       method: "POST",
       crossDomain: true,
       headers: {

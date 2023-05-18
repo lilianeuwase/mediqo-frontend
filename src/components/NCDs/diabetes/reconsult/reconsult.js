@@ -166,7 +166,8 @@ export default function Reconsult({ patientData }) {
       BP
     );
     // fetch("https://mediqo-api.onrender.com/updatePatient", {
-    fetch("http://localhost:5000/updatePatient", {
+    // fetch("http://localhost:5000/updatePatient", {
+      fetch("https://fantastic-python.cyclic.app/updatePatient", {
       method: "POST",
       crossDomain: true,
       headers: {

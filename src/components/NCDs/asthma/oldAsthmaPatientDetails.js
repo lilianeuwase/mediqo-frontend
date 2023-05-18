@@ -7,7 +7,8 @@ export default function OldAsthmaPatientDetails() {
 
   useEffect(() => {
     // fetch("https://mediqo-api.onrender.com/AsthmapatientData", {
-      fetch("http://localhost:5000/AsthmapatientData", {
+      // fetch("http://localhost:5000/AsthmapatientData", {
+        fetch("https://fantastic-python.cyclic.app/AsthmapatientData", {
       method: "POST",
       crossDomain: true,
       headers: {

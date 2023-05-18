@@ -216,7 +216,8 @@ export default function AddDiab() {
       BP
     );
     // fetch("https://mediqo-api.onrender.com/registerPatient", {
-    fetch("http://localhost:5000/registerPatient", {
+    // fetch("http://localhost:5000/registerPatient", {
+      fetch("https://fantastic-python.cyclic.app/registerPatient", {
       method: "POST",
       crossDomain: true,
       headers: {

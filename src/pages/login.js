@@ -22,7 +22,8 @@ export default function Login() {
 
     console.log(email, password);
     // fetch("https://mediqo-api.onrender.com/login-user", {
-      fetch("http://localhost:5000/login-user", {
+      // fetch("http://localhost:5000/login-user", {
+        fetch("https://fantastic-python.cyclic.app/login-user", {
       method: "POST",
       crossDomain: true,
       headers: {

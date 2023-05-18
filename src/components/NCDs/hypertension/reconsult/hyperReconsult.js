@@ -150,7 +150,8 @@ export default function HyperReconsult({ HyperpatientData }) {
       RR
     );
     // fetch("https://mediqo-api.onrender.com/updateHyperPatient", {
-    fetch("http://localhost:5000/updateHyperPatient", {
+    // fetch("http://localhost:5000/updateHyperPatient", {
+      fetch("https://fantastic-python.cyclic.app/updateHyperPatient", {
       method: "POST",
       crossDomain: true,
       headers: {

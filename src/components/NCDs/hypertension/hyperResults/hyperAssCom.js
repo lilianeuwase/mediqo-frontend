@@ -21,7 +21,8 @@ export default function HyperAssCom({ HyperpatientInfo }) {
   //fetching all Hyper patient
   const getAllHyperPatient = () => {
     // fetch("https://mediqo-api.onrender.com/getAllHyperPatient", {
-      fetch("http://localhost:5000/getAllHyperPatient", {
+      // fetch("http://localhost:5000/getAllHyperPatient", {
+        fetch("https://fantastic-python.cyclic.app/getAllHyperPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -45,7 +46,8 @@ export default function HyperAssCom({ HyperpatientInfo }) {
   function getPaginatedHyperPatients() {
     fetch(
       // `https://mediqo-api.onrender.com/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
-      `http://localhost:5000/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      // `http://localhost:5000/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      `https://fantastic-python.cyclic.app/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }

@@ -156,7 +156,8 @@ export default function AddHyper() {
       RR
     );
     // fetch("https://mediqo-api.onrender.com/registerHyperPatient", {
-    fetch("http://localhost:5000/registerHyperPatient", {
+    // fetch("http://localhost:5000/registerHyperPatient", {
+      fetch("https://fantastic-python.cyclic.app/registerHyperPatient", {
       method: "POST",
       crossDomain: true,
       headers: {

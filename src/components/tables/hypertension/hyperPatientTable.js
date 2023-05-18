@@ -26,7 +26,8 @@ export default function HyperPatientTable({}) {
   //fetching all patient
   const getAllPatient = () => {
     // fetch("https://mediqo-api.onrender.com/getAllHyperPatient", {
-    fetch("http://localhost:5000/getAllHyperPatient", {
+    // fetch("http://localhost:5000/getAllHyperPatient", {
+      fetch("https://fantastic-python.cyclic.app/getAllHyperPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -46,7 +47,8 @@ export default function HyperPatientTable({}) {
   const deletePatient = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
       // fetch("https://mediqo-api.onrender.com/deleteHyperPatient", {
-      fetch("http://localhost:5000/deleteHyperPatient", {
+      // fetch("http://localhost:5000/deleteHyperPatient", {
+        fetch("https://fantastic-python.cyclic.app/deleteHyperPatient", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -81,7 +83,8 @@ export default function HyperPatientTable({}) {
   function getPaginatedPatients() {
     fetch(
       // `https://mediqo-api.onrender.com/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
-      `http://localhost:5000/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      // `http://localhost:5000/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
+      `https://fantastic-python.cyclic.app/paginatedHyperPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }
@@ -100,7 +103,8 @@ export default function HyperPatientTable({}) {
 
     console.log(phone_number, lname);
     // fetch("https://mediqo-api.onrender.com/login-hyperpatient", {
-    fetch("http://localhost:5000/login-hyperpatient", {
+    // fetch("http://localhost:5000/login-hyperpatient", {
+      fetch("https://fantastic-python.cyclic.app/login-hyperpatient", {
       method: "POST",
       crossDomain: true,
       headers: {

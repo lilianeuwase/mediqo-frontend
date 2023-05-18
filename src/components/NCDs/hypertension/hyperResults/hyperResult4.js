@@ -35,7 +35,8 @@ export default function HyperResult4({ i }) {
       control
     );
     // fetch("https://mediqo-api.onrender.com/updateHyperPatient1", {
-    fetch("http://localhost:5000/updateHyperPatient1", {
+    // fetch("http://localhost:5000/updateHyperPatient1", {
+      fetch("https://fantastic-python.cyclic.app/updateHyperPatient1", {
       method: "POST",
       crossDomain: true,
       headers: {

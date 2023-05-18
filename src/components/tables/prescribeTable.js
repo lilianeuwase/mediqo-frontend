@@ -20,7 +20,8 @@ export default function PrescribeTable(props) {
 
     console.log(phone_number, diagnosis, patient_manage, medication);
     // fetch("https://mediqo-api.onrender.com/updatePatient1", {
-      fetch("http://localhost:5000/updatePatient1", {
+      // fetch("http://localhost:5000/updatePatient1", {
+        fetch("https://fantastic-python.cyclic.app/updatePatient1", {
       method: "POST",
       crossDomain: true,
       headers: {

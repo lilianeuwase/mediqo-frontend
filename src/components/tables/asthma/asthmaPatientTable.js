@@ -29,7 +29,8 @@ export default function AsthmaPatientTable({}) {
   //fetching all patient
   const getAllPatient = () => {
     // fetch("https://mediqo-api.onrender.com/getAllAsthmaPatient", {
-    fetch("http://localhost:5000/getAllAsthmaPatient", {
+    // fetch("http://localhost:5000/getAllAsthmaPatient", {
+      fetch("https://fantastic-python.cyclic.app/getAllAsthmaPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -49,7 +50,8 @@ export default function AsthmaPatientTable({}) {
   const deletePatient = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
       // fetch("https://mediqo-api.onrender.com/deleteAsthmaPatient", {
-      fetch("http://localhost:5000/deleteAsthmaPatient", {
+      // fetch("http://localhost:5000/deleteAsthmaPatient", {
+        fetch("https://fantastic-python.cyclic.app/deleteAsthmaPatient", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -84,7 +86,8 @@ export default function AsthmaPatientTable({}) {
   function getPaginatedPatients() {
     fetch(
       // `https://mediqo-api.onrender.com/paginatedAsthmaPatients?page=${currentPage.current}&limit=${limit}`,
-      `http://localhost:5000/paginatedAsthmaPatients?page=${currentPage.current}&limit=${limit}`,
+      // `http://localhost:5000/paginatedAsthmaPatients?page=${currentPage.current}&limit=${limit}`,
+      `https://fantastic-python.cyclic.app/paginatedAsthmaPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }
@@ -103,7 +106,8 @@ export default function AsthmaPatientTable({}) {
 
     console.log(phone_number, lname);
     // fetch("https://mediqo-api.onrender.com/login-patient", {
-    fetch("http://localhost:5000/login-asthmapatient", {
+    // fetch("http://localhost:5000/login-asthmapatient", {
+      fetch("https://fantastic-python.cyclic.app/login-asthmapatient", {
       method: "POST",
       crossDomain: true,
       headers: {

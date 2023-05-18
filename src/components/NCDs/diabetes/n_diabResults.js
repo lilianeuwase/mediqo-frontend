@@ -16,7 +16,8 @@ export default function NDiabResults() {
 
   useEffect(() => {
     // fetch("https://mediqo-api.onrender.com/patientData", {
-      fetch("http://localhost:5000/patientData", {
+      // fetch("http://localhost:5000/patientData", {
+        fetch("https://fantastic-python.cyclic.app/patientData", {
       method: "POST",
       crossDomain: true,
       headers: {

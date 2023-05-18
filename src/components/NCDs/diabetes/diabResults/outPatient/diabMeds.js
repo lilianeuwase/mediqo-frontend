@@ -24,7 +24,8 @@ export default function DiabMeds({ patientInfo }) {
   //fetching all patient
   const getAllPatient = () => {
     // fetch("https://mediqo-api.onrender.com/getAllPatient", {
-      fetch("http://localhost:5000/getAllPatient", {
+      // fetch("http://localhost:5000/getAllPatient", {
+        fetch("https://fantastic-python.cyclic.app/getAllPatient", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -48,7 +49,8 @@ export default function DiabMeds({ patientInfo }) {
   function getPaginatedPatients() {
     fetch(
       // `https://mediqo-api.onrender.com/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
-      `http://localhost:5000/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      // `http://localhost:5000/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
+      `https://fantastic-python.cyclic.app/paginatedPatients?page=${currentPage.current}&limit=${limit}`,
       {
         method: "GET",
       }

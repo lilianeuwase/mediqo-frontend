@@ -20,7 +20,8 @@ export default function AddUser() {
 
       console.log(fname, lname, email, title, hospital, password);
       // fetch("https://mediqo-api.onrender.com/register", {
-        fetch("http://localhost:5000/register", {
+        // fetch("http://localhost:5000/register", {
+          fetch("https://fantastic-python.cyclic.app/register", {
         method: "POST",
         crossDomain: true,
         headers: {
