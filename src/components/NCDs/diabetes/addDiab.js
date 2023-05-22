@@ -569,7 +569,7 @@ export default function AddDiab() {
                   <MDBInput
                     size="sm"
                     wrapperClass="mb-2"
-                    label="Heart Rate"
+                    label="Blood Pressure"
                     id="typeNumber"
                     type="number"
                     onChange={(e) => setBP(e.target.value)}
