@@ -570,8 +570,8 @@ export default function AddDiab() {
                     size="sm"
                     wrapperClass="mb-2"
                     label="Blood Pressure"
-                    id="typeNumber"
-                    type="number"
+                    id="typeText"
+                    type="text"
                     onChange={(e) => setBP(e.target.value)}
                   />
                   <MDBInput
