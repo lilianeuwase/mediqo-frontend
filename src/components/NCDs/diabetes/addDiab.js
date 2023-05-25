@@ -556,6 +556,7 @@ export default function AddDiab() {
                     label="Temperature (C°)"
                     id="typeNumber"
                     type="number"
+                    step=".01"
                     onChange={(e) => setTemp(e.target.value)}
                   />
                   <MDBInput
