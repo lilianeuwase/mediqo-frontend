@@ -92,7 +92,7 @@ export default function OneLine() {
                     onChange={(e) => setDose(e.target.value)}
                     required
                   >
-                    <MenuItem value="5mg oral 1x/day">5mg oral 1x/day</MenuItem>
+                    <MenuItem value="5mg oral 1x/day">12.5mg oral 1x/day</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
