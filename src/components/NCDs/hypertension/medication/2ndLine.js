@@ -83,7 +83,7 @@ export default function TwoLine() {
                     required
                   >
                     <MenuItem value="HCTZ - 5mg oral 1x/day">
-                      HCTZ - 5mg oral 1x/day
+                      HCTZ - 25mg oral 1x/day
                     </MenuItem>
                   </Select>
                 </FormControl>
