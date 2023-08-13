@@ -47,7 +47,7 @@ export default function Login() {
           window.location.href = "/userDetails";
         } else {
           alert("User Not found");
-          window.location.href = "/";
+          window.location.href = "/login";
         }
       });
   }
@@ -57,7 +57,7 @@ export default function Login() {
       <MDBContainer className="my-4">
         <MDBCard>
           <MDBRow className="g-0 ">
-            <MDBCol md="5">
+            <MDBCol md="6">
               <MDBCardImage
                 src={require("../images/Niddle1.jpeg")}
                 alt="login form"
@@ -146,11 +146,11 @@ export default function Login() {
                       Forgot password?
                     </a>
                     <p
-                      className="mb-5 pb-lg-2 text-center fw-bold fs-6"
+                      className="mt-4 pb-lg-2 fw-bold fs-6"
                       style={{ color: "#393f81" }}
                     >
                       Don't have an account?{" "}
-                      <a href="#!" style={{ color: "#393f81" }}>
+                      <a href="/contact" style={{ color: "#393f81" }}>
                         Contact the Administrator
                       </a>
                     </p>

@@ -72,7 +72,7 @@ export default function Footer() {
       >
         © 2023 Copyright:
         <a className="text-white" href="">
-          Mediqo
+          Mediqqo
         </a>
       </div>
     </MDBFooter>

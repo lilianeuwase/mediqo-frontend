@@ -37,6 +37,7 @@ import OldHyperPatientDetails2 from "./components/NCDs/hypertension/reconsult/pa
 import OldAsthmaPatientDetails2 from "./components/NCDs/asthma/reconsult/patients/oldAsthmaPatientDetails2";
 import OneLine from "./components/NCDs/hypertension/medication/1stLine";
 import TwoLine from "./components/NCDs/hypertension/medication/2ndLine";
+import HomePage from "./pages/homepage";
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
@@ -44,9 +45,10 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
+        <Route path="/" element={<HomePage />} />
           <Route
             exact
-            path="/"
+            path="login"
             element={isLoggedIn == "true" ? <UserDetails /> : <Login />}
           />
           <Route
