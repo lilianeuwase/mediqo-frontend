@@ -7,18 +7,18 @@ import { coursesCard } from "../../../../dummydata";
 const HAbout = () => {
   return (
     <>
-      <section className="homeAbout">
+      <section className="homeAbout mb-8">
         <div className="container">
           <Heading
-            subtitle="our courses"
-            title="explore our popular online courses"
+            subtitle="Our Services"
+            title="Explore Mediqqo unique services"
           />
           <div className="coursesCard">
             {" "}
             {/* copy code form  coursesCard */}{" "}
             <div className="grid2">
               {" "}
-              {coursesCard.slice(0, 3).map((val) => (
+              {coursesCard.slice(0, 6).map((val) => (
                 <div className="items">
                   <div className="content flex">
                     <div className="left">
@@ -28,39 +28,17 @@ const HAbout = () => {
                     </div>{" "}
                     <div className="text">
                       <h1> {val.coursesName} </h1>{" "}
-                      <div className="rate">
-                        <i className="fa fa-star"> </i>{" "}
-                        <i className="fa fa-star"> </i>{" "}
-                        <i className="fa fa-star"> </i>{" "}
-                        <i className="fa fa-star"> </i>{" "}
-                        <i className="fa fa-star"> </i>{" "}
-                        <label htmlFor=""> (5.0) </label>{" "}
-                      </div>{" "}
-                      <div className="details">
-                        {" "}
-                        {val.courTeacher.map((details) => (
-                          <>
-                            <div className="box">
-                              <div className="dimg">
-                                <img src={details.dcover} alt="" />
-                              </div>{" "}
-                              <div className="para">
-                                <h4> {details.name} </h4>{" "}
-                              </div>{" "}
-                            </div>{" "}
-                            <span> {details.totalTime} </span>{" "}
-                          </>
-                        ))}{" "}
-                      </div>{" "}
                     </div>{" "}
                   </div>{" "}
                   <div className="price">
-                    <h3>
-                      {" "}
-                      {val.priceAll}/ {val.pricePer}{" "}
-                    </h3>{" "}
+                    <h3> {val.item1} </h3>{" "}
                   </div>{" "}
-                  <button className="outline-btn"> ENROLL NOW! </button>{" "}
+                  <div className="price">
+                    <h3> {val.item2} </h3>{" "}
+                  </div>{" "}
+                  <div className="price">
+                    <h3> {val.item3} </h3>{" "}
+                  </div>{" "}
                 </div>
               ))}{" "}
             </div>{" "}
