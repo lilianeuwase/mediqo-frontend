@@ -36,9 +36,9 @@ const Header = () => {
             className={click ? "mobile-nav" : "flexSB "}
             onClick={() => setClick(false)}
           >
-            <li>
+            {/* <li>
               <Link to="/">Home</Link>
-            </li>
+            </li> */}
             <li>
               <a
                 href="#about"
@@ -48,6 +48,17 @@ const Header = () => {
                 onClick={() => onUpdateActiveLink("about")}
               >
                 About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#services"
+                className={
+                  activeLink === "services" ? "active navbar-link" : "navbar-link"
+                }
+                onClick={() => onUpdateActiveLink("services")}
+              >
+                Services
               </a>
             </li>
             <li>
@@ -72,6 +83,7 @@ const Header = () => {
                 Contact
               </a>
             </li>
+            
           </ul>
           <div className="start">
             <div className="button">

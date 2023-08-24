@@ -7,6 +7,8 @@ import Hprice from "./Hprice";
 import Testimonal from "./testimonal/Testimonal";
 import "./Home.css";
 import Header from "../common/header/Header";
+import Team from "../team/Team";
+import { ContactUs } from "../contact/contactUs";
 
 const Home = () => {
   return (
@@ -15,6 +17,7 @@ const Home = () => {
       <Hero />
       <AboutCard />
       <HAbout />
+      <Team/>
       {/* <Testimonal /> */}
       {/* <Hblog /> */}
       {/* <Hprice /> */}

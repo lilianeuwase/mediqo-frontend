@@ -7,7 +7,7 @@ import { coursesCard } from "../../../../dummydata";
 const HAbout = () => {
   return (
     <>
-      <section className="homeAbout mb-8">
+      <section className="homeAbout mb-8" id="services">
         <div className="container">
           <Heading
             subtitle="Our Services"
