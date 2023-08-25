@@ -14,14 +14,14 @@ export default function DarkPanel() {
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
       />
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 text-left lg:mx-0 lg:max-w-none">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
             Work with us
           </h2>
           <p className="mt-6 text-xl leading-8 text-gray-300">
             You can acquire Mediqqo access for a better management of your
-            healthcare facility
+            healthcare facility. Mediqqo allows NCD health professionals and patients to collaborate and build a better system for themselves.
           </p>
         </div>
         {/* <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">

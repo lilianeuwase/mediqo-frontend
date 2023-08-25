@@ -169,13 +169,15 @@ export const online = [
 export const team = [
   {
     cover: "./images/team/t1.webp",
-    name: "Dr. Jean Paul Ndayizeye, M.D",
-    work: "LEAD PHYSICIAN",
+    name: "Dr. Jean Paul Ndayizeye, M.D, MPH",
+    // work: "CO-FOUNDER & LEAD PHYSICIAN",
+    work: "Co-Founder & Lead Physician",
   },
   {
     cover: require("./images/team/LilianeCrop.jpg"),
     name: "Liliane Uwase, M.Sc",
-    work: "LEAD DEVELOPER",
+    // work: "CO-FOUNDER & LEAD DEVELOPER",
+    work: "Co-Founder & Lead Developer",
   },
   
   
