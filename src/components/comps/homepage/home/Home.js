@@ -9,6 +9,7 @@ import "./Home.css";
 import Header from "../common/header/Header";
 import Team from "../team/Team";
 import { ContactUs } from "../contact/contactUs";
+import DarkPanel from "./darkPanel";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Hero />
       <AboutCard />
       <HAbout />
+      <DarkPanel/>
       <Team/>
       {/* <Testimonal /> */}
       {/* <Hblog /> */}

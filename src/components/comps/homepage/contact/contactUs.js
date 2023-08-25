@@ -97,8 +97,11 @@ export function ContactUs() {
       <Box
         sx={(theme) => ({
           padding: theme.spacing.xl,
-          backgroundImage: `linear-gradient(135deg, ${theme.colors.teal[7]} 0%, ${
-            theme.colors.orange[6]
+          // backgroundImage: `linear-gradient(135deg, ${theme.colors.teal[7]} 50%, ${
+          //   theme.colors.orange[6]
+          // } 100%)`,
+          backgroundImage: `linear-gradient(135deg, ${theme.colors.teal[8]} 50%, ${
+            theme.colors.teal[8]
           } 100%)`,
         })}
       >
