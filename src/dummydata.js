@@ -168,7 +168,7 @@ export const online = [
 ]
 export const team = [
   {
-    cover: "./images/team/t1.webp",
+    cover: require("./images/team/Jean Paul Ndayizeye.JPG"),
     name: "Dr. Jean Paul Ndayizeye, M.D, MPH",
     // work: "CO-FOUNDER & LEAD PHYSICIAN",
     work: "Co-Founder & Lead Physician",
