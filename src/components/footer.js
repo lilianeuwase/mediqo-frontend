@@ -71,9 +71,11 @@ export default function Footer() {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
         © 2023 Copyright:
-        <a className="text-white" href="">
+        <a className="text-white" href="/">
           Mediqqo
         </a>
+        <br/>
+            Designed by 8 Lines Code Ltd.
       </div>
     </MDBFooter>
   );
