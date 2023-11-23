@@ -75,7 +75,7 @@ export default function Footer() {
           Mediqqo
         </a>
         <br/>
-            Designed by 8 Lines Code Ltd.
+            Designed by 8 Lines Code
       </div>
     </MDBFooter>
   );
