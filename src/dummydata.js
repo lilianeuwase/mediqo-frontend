@@ -179,6 +179,12 @@ export const team = [
     // work: "CO-FOUNDER & LEAD DEVELOPER",
     work: "Co-Founder & Lead Developer",
   },
+  {
+    cover: require("./images/team/JosianeCircle.png"),
+    name: "Josiane Uwishimwe",
+    // work: "CO-FOUNDER & LEAD DEVELOPER",
+    work: "Co-Founder & Developer",
+  },
   
   
 ]
